@@ -1,0 +1,2542 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.21022</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{1B0906B7-A4E9-4513-95EF-66A20A5F00C8}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Horizon</RootNamespace>
+    <AssemblyName>Horizon</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ApplicationIcon>Horizon.64.ico</ApplicationIcon>
+    <StartupObject>Horizon.Program</StartupObject>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <TargetZone>LocalIntranet</TargetZone>
+    <GenerateManifests>true</GenerateManifests>
+    <SignAssembly>true</SignAssembly>
+    <SignManifests>false</SignManifests>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <UpgradeBackupLocation />
+    <AssemblyOriginatorKeyFile>StrongKey.pfx</AssemblyOriginatorKeyFile>
+    <DelaySign>false</DelaySign>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+    <ApplicationManifest>Properties\app.manifest</ApplicationManifest>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'INT2|x86' ">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\INT2\</OutputPath>
+    <DefineConstants>INT2;PNET</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <Optimize>false</Optimize>
+    <NoStdLib>false</NoStdLib>
+    <CheckForOverflowUnderflow>false</CheckForOverflowUnderflow>
+    <FileAlignment>512</FileAlignment>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <UseVSHostingProcess>true</UseVSHostingProcess>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'PROD|x86' ">
+    <OutputPath>bin\PROD\</OutputPath>
+    <DefineConstants>PROD</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>none</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <FileAlignment>1024</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'PNET|x86' ">
+    <OutputPath>bin\PNET\</OutputPath>
+    <DefineConstants>PNET</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>none</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <DebugSymbols>false</DebugSymbols>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="DevComponents.DotNetBar2, Version=8.9.0.5, Culture=neutral, PublicKeyToken=7eb7c3a35b91de04, processorArchitecture=MSIL">
+      <HintPath>bin\INT2\DevComponents.DotNetBar2.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="ICSharpCode.SharpZipLib, Version=0.86.0.518, Culture=neutral, PublicKeyToken=1b03e6acf1164f73, processorArchitecture=MSIL" />
+    <Reference Include="Ionic.Zlib.CF, Version=1.9.1.5, Culture=neutral, PublicKeyToken=edbe51ad942a3f5c, processorArchitecture=MSIL" />
+    <Reference Include="Microsoft.mshtml, Version=7.0.3300.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>c:\Program Files (x86)\Microsoft.NET\Primary Interop Assemblies\Microsoft.mshtml.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.SQLite, Version=1.0.65.0, Culture=neutral, PublicKeyToken=db937bc2d44ff139, processorArchitecture=x86" />
+    <Reference Include="System.Management" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Controls\DvarButton.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\DvarSlider.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Forms\About.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\About.Designer.cs">
+      <DependentUpon>About.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\ProfileManager.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\ProfileManager.Designer.cs">
+      <DependentUpon>ProfileManager.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Registration.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Registration.Designer.cs">
+      <DependentUpon>Registration.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\ProfileSelector.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\ProfileSelector.Designer.cs">
+      <DependentUpon>ProfileSelector.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\DeviceWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\DeviceWindow.Designer.cs">
+      <DependentUpon>DeviceWindow.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\TitleCrawler.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\TitleCrawler.Designer.cs">
+      <DependentUpon>TitleCrawler.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\TitleSettingsManager.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\TitleSettingsManager.Designer.cs">
+      <DependentUpon>TitleSettingsManager.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Functions\Extensions.cs" />
+    <Compile Include="Functions\Win32.cs" />
+    <Compile Include="Handles\ClipboardHelper.cs" />
+    <Compile Include="Handles\FatxHandle.cs">
+    </Compile>
+    <Compile Include="Handles\TitleControl.cs" />
+    <Compile Include="Handles\ProgressHandle.cs" />
+    <Compile Include="PackageClasses\AssassinsCreed.cs" />
+    <Compile Include="PackageClasses\Ubisoft.cs" />
+    <Compile Include="PackageClasses\Volition.cs" />
+    <Compile Include="PackageEditors\Assassin%27s Creed Brotherhood\ACBrotherhood.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PackageEditors\Assassin%27s Creed Brotherhood\ACBrotherhood.Designer.cs">
+      <DependentUpon>ACBrotherhood.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PackageEditors\Assassin%27s Creed Brotherhood\ACBrotherhoodSaveGame.cs" />
+    <Compile Include="PackageEditors\Assassin%27s Creed III\ACIII.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PackageEditors\Assassin%27s Creed III\ACIII.Designer.cs">
+      <DependentUpon>ACIII.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PackageEditors\Assassin%27s Creed III\ACIIISaveGame.cs" />
+    <Compile Include="PackageEditors\Assassin%27s Creed IV\ACIV.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PackageEditors\Assassin%27s Creed IV\ACIV.Designer.cs">
+      <DependentUpon>ACIV.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PackageEditors\Assassin%27s Creed IV\ACIVSaveGame.cs" />
+    <Compile Include="PackageEditors\Assassin%27s Creed Rogue\ACRogue.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PackageEditors\Assassin%27s Creed Rogue\ACRogue.Designer.cs">
+      <DependentUpon>ACRogue.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PackageEditors\Assassin%27s Creed Rogue\ACRogueSaveGame.cs" />
+    <Compile Include="PackageEditors\Assassin%27s Creed\ACISaveGame.cs" />
+    <Compile Include="PackageEditors\Assassin%27s Creed\AssassinsCreed.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PackageEditors\Assassin%27s Creed\AssassinsCreed.Designer.cs">
+      <DependentUpon>AssassinsCreed.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PackageEditors\Assassin%27s Creed II\ACIISaveGame.cs" />
+    <Compile Include="PackageEditors\BattleBlock Theater\BattleBlockTheater.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PackageEditors\BattleBlock Theater\BattleBlockTheater.Designer.cs">
+      <DependentUpon>BattleBlockTheater.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PackageEditors\BattleBlock Theater\BattleBlockTheaterClass.cs" />
+    <Compile Include="PackageEditors\Battlefield 4\Battlefield4.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PackageEditors\Battlefield 4\Battlefield4.Designer.cs">
+      <DependentUpon>Battlefield4.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PackageEditors\Battlefield 4\Battlefield4Class.cs" />
+    <Compile Include="PackageEditors\BioShock Infinite\BioShockInfinite.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PackageEditors\BioShock Infinite\BioShockInfinite.Designer.cs">
+      <DependentUpon>BioShockInfinite.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PackageEditors\BioShock Infinite\BioShockInfiniteSave.cs" />
+    <Compile Include="PackageEditors\BioShock\BioShock.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PackageEditors\BioShock\BioShock.Designer.cs">
+      <DependentUpon>BioShock.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PackageEditors\BioShock\BioShockClass.cs" />
+    <Compile Include="PackageEditors\Call of Duty Advanced Warfare\CoDAdvancedWarfare.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PackageEditors\Call of Duty Advanced Warfare\CoDAdvancedWarfare.Designer.cs">
+      <DependentUpon>CoDAdvancedWarfare.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PackageEditors\Call of Duty Ghosts\CoDGhosts.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PackageEditors\Call of Duty Ghosts\CoDGhosts.Designer.cs">
+      <DependentUpon>CoDGhosts.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PackageEditors\Call of Duty Ghosts\CoDGhostsSave.cs" />
+    <Compile Include="PackageEditors\Call of Duty Ghosts\Segment2.cs" />
+    <Compile Include="PackageEditors\Castle Crashers\CastleCrashersClass.cs" />
+    <Compile Include="PackageEditors\Diablo III\DiabloIII.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PackageEditors\Diablo III\DiabloIII.Designer.cs">
+      <DependentUpon>DiabloIII.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PackageEditors\Dragonball XenoVerse\DBXenoVerseSaveGame.cs" />
+    <Compile Include="PackageEditors\Dragonball XenoVerse\DragonballXenoVerse.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PackageEditors\Dragonball XenoVerse\DragonballXenoVerse.Designer.cs">
+      <DependentUpon>DragonballXenoVerse.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PackageEditors\Far Cry 3 Blood Dragon\FarCry3BloodDragon.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PackageEditors\Far Cry 3 Blood Dragon\FarCry3BloodDragon.Designer.cs">
+      <DependentUpon>FarCry3BloodDragon.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PackageEditors\Far Cry 4\FarCry4.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PackageEditors\Far Cry 4\FarCry4.Designer.cs">
+      <DependentUpon>FarCry4.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PackageEditors\Far Cry 4\FarCry4Save.cs" />
+    <Compile Include="PackageEditors\FIFA 14\FIFA14.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PackageEditors\FIFA 14\FIFA14.Designer.cs">
+      <DependentUpon>FIFA14.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PackageEditors\FIFA 14\FIFA14_GameSave.cs" />
+    <Compile Include="PackageEditors\FIFA 15\FIFA15.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PackageEditors\FIFA 15\FIFA15.Designer.cs">
+      <DependentUpon>FIFA15.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PackageEditors\FIFA 15\FIFA15_GameSave.cs" />
+    <Compile Include="PackageEditors\Forza Horizon 2\ForzaHorizon2FastNFurious.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PackageEditors\Forza Horizon 2\ForzaHorizon2FastNFurious.Designer.cs">
+      <DependentUpon>ForzaHorizon2FastNFurious.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PackageEditors\Forza Horizon 2\ForzaHorizon2Profile.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PackageEditors\Forza Horizon 2\ForzaHorizon2Profile.Designer.cs">
+      <DependentUpon>ForzaHorizon2Profile.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PackageEditors\Gears of War Judgment\Campaign\GearAI.cs" />
+    <Compile Include="PackageEditors\Gears of War Judgment\Campaign\GearGame.cs" />
+    <Compile Include="PackageEditors\Gears of War Judgment\Campaign\GearPC.cs" />
+    <Compile Include="PackageEditors\Gears of War Judgment\GearSettings.cs" />
+    <Compile Include="PackageEditors\Gears of War Judgment\Campaign\GearsOfWarJudgment.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PackageEditors\Gears of War Judgment\Campaign\GearsOfWarJudgment.Designer.cs">
+      <DependentUpon>GearsOfWarJudgment.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PackageEditors\Gears of War Judgment\Campaign\GearTypes.cs" />
+    <Compile Include="PackageEditors\Gears of War Judgment\Profile\ProfileEditor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PackageEditors\Gears of War Judgment\Profile\ProfileEditor.Designer.cs">
+      <DependentUpon>ProfileEditor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PackageEditors\Gears of War Judgment\Stats\PlayerPersistentData.cs" />
+    <Compile Include="PackageEditors\Gears of War Judgment\Profile\ProfileSettings.cs" />
+    <Compile Include="PackageEditors\Gears of War Judgment\Stats\StatsEditor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PackageEditors\Gears of War Judgment\Stats\StatsEditor.Designer.cs">
+      <DependentUpon>StatsEditor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PackageEditors\Grand Theft Auto V\GrandTheftAutoV.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PackageEditors\Grand Theft Auto V\GrandTheftAutoV.Designer.cs">
+      <DependentUpon>GrandTheftAutoV.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PackageEditors\Grand Theft Auto V\GrandTheftAutoVClass.cs" />
+    <Compile Include="PackageEditors\Grand Theft Auto V\GrandTheftAutoVData.cs" />
+    <Compile Include="PackageEditors\Grid 2\Grid2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PackageEditors\Grid 2\Grid2.Designer.cs">
+      <DependentUpon>Grid2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PackageEditors\Grid 2\Grid2Save.cs" />
+    <Compile Include="IO\MultiFileIO.cs" />
+    <Compile Include="IO\TempBitStream.cs" />
+    <Compile Include="Library\Exceptions.cs" />
+    <Compile Include="Library\Formats\MediaIndex.cs" />
+    <Compile Include="Library\Systems\Fatx Device\FatxDevice.cs" />
+    <Compile Include="Library\Systems\Fatx Device\FatxDeviceControl.cs" />
+    <Compile Include="Library\Systems\Fatx Device\FatxStructure.cs" />
+    <Compile Include="Handles\FormConfig.cs" />
+    <Compile Include="Handles\FormHandle.cs" />
+    <Compile Include="Handles\FormSettings.cs" />
+    <Compile Include="Forms\GamercardViewer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\GamercardViewer.Designer.cs">
+      <DependentUpon>GamercardViewer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\TitleIDFinder.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\TitleIDFinder.Designer.cs">
+      <DependentUpon>TitleIDFinder.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Library\Formats\XProfileAccount.cs" />
+    <Compile Include="Library\Systems\Gamercard.cs" />
+    <Compile Include="Library\Systems\Optical Disc Drive\OdfxDevice.cs" />
+    <Compile Include="Library\Systems\Optical Disc Drive\OdfxStructure.cs" />
+    <Compile Include="Library\Systems\Xbox DataBase File\AchievementTracker.cs" />
+    <Compile Include="Library\Systems\Xbox DataBase File\AvatarAssetTracker.cs" />
+    <Compile Include="Library\Systems\Xbox DataBase File\DataFile.cs" />
+    <Compile Include="Library\Systems\Xbox DataBase File\DataFileConstructor.cs" />
+    <Compile Include="Library\Systems\Xbox DataBase File\ProfileFile.cs" />
+    <Compile Include="Library\Systems\Xbox DataBase File\SettingsTracker.cs" />
+    <Compile Include="Library\Systems\Xbox DataBase File\TitleTracker.cs" />
+    <Compile Include="Library\Systems\XContent\Cryptography.cs" />
+    <Compile Include="Library\Systems\XContent\ProfileEmbeddedContent.cs" />
+    <Compile Include="Library\Systems\XContent\StfsDevice.cs" />
+    <Compile Include="Library\Systems\XContent\SvodDevice.cs" />
+    <Compile Include="Library\Systems\XContent\XContentPackage.cs" />
+    <Compile Include="Library\Systems\XContent\XContentStructure.cs" />
+    <Compile Include="PackageClasses\ConfigFile.cs" />
+    <Compile Include="PackageClasses\Crysis.cs" />
+    <Compile Include="PackageClasses\Dirt.cs" />
+    <Compile Include="PackageClasses\Dvar.cs" />
+    <Compile Include="PackageClasses\DvarCollection.cs" />
+    <Compile Include="PackageClasses\Forza.cs" />
+    <Compile Include="PackageClasses\Halo.cs" />
+    <Compile Include="PackageClasses\LZO.cs" />
+    <Compile Include="PackageClasses\UnrealEngine.cs" />
+    <Compile Include="PackageEditors\Account Editor\AccountEditor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PackageEditors\Account Editor\AccountEditor.Designer.cs">
+      <DependentUpon>AccountEditor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PackageEditors\Alan Wake\AlanWake.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PackageEditors\Alan Wake\AlanWake.Designer.cs">
+      <DependentUpon>AlanWake.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PackageEditors\Alan Wake\AlanWakeClass.cs" />
+    <Compile Include="PackageEditors\Alice\Alice.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PackageEditors\Alice\Alice.Designer.cs">
+      <DependentUpon>Alice.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PackageEditors\Alice\AliceSave.cs" />
+    <Compile Include="PackageEditors\Assassin%27s Creed Revelations\ACRevelations.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PackageEditors\Assassin%27s Creed Revelations\ACRevelations.Designer.cs">
+      <DependentUpon>ACRevelations.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PackageEditors\Assassin%27s Creed Revelations\ACRevelations_Savegame.cs" />
+    <Compile Include="PackageEditors\Avatar Award Unlocker\AvatarAwardUnlocker.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PackageEditors\Avatar Award Unlocker\AvatarAwardUnlocker.Designer.cs">
+      <DependentUpon>AvatarAwardUnlocker.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PackageEditors\Bastion\Bastion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PackageEditors\Bastion\Bastion.Designer.cs">
+      <DependentUpon>Bastion.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PackageEditors\Bastion\BastionSave.cs" />
+    <Compile Include="PackageEditors\Batman Arkham City\ArkhamSave.cs" />
+    <Compile Include="PackageEditors\Batman Arkham City\BatmanArkhamCity.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PackageEditors\Batman Arkham City\BatmanArkhamCity.Designer.cs">
+      <DependentUpon>BatmanArkhamCity.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PackageEditors\Bayonetta\BayonettaSave.cs" />
+    <Compile Include="PackageEditors\Bayonetta\Bayonetta.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PackageEditors\Bayonetta\Bayonetta.Designer.cs">
+      <DependentUpon>Bayonetta.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PackageEditors\Bionic Commando\BionicCommando.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PackageEditors\Bionic Commando\BionicCommando.Designer.cs">
+      <DependentUpon>BionicCommando.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PackageEditors\Bionic Commando\BionicCommandoClass.cs" />
+    <Compile Include="PackageEditors\Bioshock 2\Bioshock2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PackageEditors\Bioshock 2\Bioshock2.Designer.cs">
+      <DependentUpon>Bioshock2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PackageEditors\Bioshock 2\Bioshock2Class.cs" />
+    <Compile Include="PackageEditors\Borderlands\Borderlands.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PackageEditors\Borderlands\Borderlands.Designer.cs">
+      <DependentUpon>Borderlands.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PackageEditors\Borderlands\BorderlandsClass.cs" />
+    <Compile Include="PackageEditors\Brink\Brink.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PackageEditors\Brink\Brink.Designer.cs">
+      <DependentUpon>Brink.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PackageEditors\Brink\BrinkSave.cs" />
+    <Compile Include="PackageEditors\Brutal Legend\BrutalLegend.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PackageEditors\Brutal Legend\BrutalLegend.Designer.cs">
+      <DependentUpon>BrutalLegend.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PackageEditors\Brutal Legend\BrutalLegendClass.cs" />
+    <Compile Include="PackageEditors\Bulletstorm\Bulletstorm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PackageEditors\Bulletstorm\Bulletstorm.Designer.cs">
+      <DependentUpon>Bulletstorm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PackageEditors\Bulletstorm\BulletstormSave.cs" />
+    <Compile Include="PackageEditors\Captain America\CaptainAmerica.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PackageEditors\Captain America\CaptainAmerica.Designer.cs">
+      <DependentUpon>CaptainAmerica.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PackageEditors\Captain America\CaptainAmericaSave.cs" />
+    <Compile Include="PackageEditors\Castle Crashers\CastleCrashers.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PackageEditors\Castle Crashers\CastleCrashers.Designer.cs">
+      <DependentUpon>CastleCrashers.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PackageEditors\Crackdown 2\Crackdown2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PackageEditors\Crackdown 2\Crackdown2.Designer.cs">
+      <DependentUpon>Crackdown2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PackageEditors\Crackdown 2\Crackdown2Class.cs" />
+    <Compile Include="PackageEditors\Crackdown\CrackdownClass.cs" />
+    <Compile Include="PackageEditors\Crysis 2\Crysis2Campaign.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PackageEditors\Crysis 2\Crysis2Campaign.Designer.cs">
+      <DependentUpon>Crysis2Campaign.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PackageEditors\Crysis 2\Crysis2Profile.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PackageEditors\Crysis 2\Crysis2Profile.Designer.cs">
+      <DependentUpon>Crysis2Profile.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PackageEditors\Crysis 2\Crysis2Class.cs" />
+    <Compile Include="PackageEditors\Crysis 2\Crysis2Save.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PackageEditors\Crysis 2\Crysis2Save.Designer.cs">
+      <DependentUpon>Crysis2Save.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PackageEditors\Crysis 3\Crysis3Save.cs" />
+    <Compile Include="PackageEditors\Crysis 3\Crysis3SaveGame.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PackageEditors\Crysis 3\Crysis3SaveGame.Designer.cs">
+      <DependentUpon>Crysis3SaveGame.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PackageEditors\Darksiders\Darksiders.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PackageEditors\Darksiders\Darksiders.Designer.cs">
+      <DependentUpon>Darksiders.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PackageEditors\Darksiders\DarksidersClass.cs" />
+    <Compile Include="PackageEditors\Dead Rising 2\DeadRising2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PackageEditors\Dead Rising 2\DeadRising2.Designer.cs">
+      <DependentUpon>DeadRising2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PackageEditors\Dead Rising 2\DeadRising2Class.cs" />
+    <Compile Include="PackageEditors\Dead Space 2\DeadSpace2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PackageEditors\Dead Space 2\DeadSpace2.Designer.cs">
+      <DependentUpon>DeadSpace2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PackageEditors\Dead Space 2\DeadSpace2Save.cs" />
+    <Compile Include="PackageEditors\Dead Space 3\DeadSpace3.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PackageEditors\Dead Space 3\DeadSpace3.Designer.cs">
+      <DependentUpon>DeadSpace3.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PackageEditors\Dead Space 3\DeadSpace3Save.cs" />
+    <Compile Include="PackageEditors\Dead Space\DeadSpace.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PackageEditors\Dead Space\DeadSpace.Designer.cs">
+      <DependentUpon>DeadSpace.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PackageEditors\Dead Space\DeadSpaceSave.cs" />
+    <Compile Include="PackageEditors\Devil May Cry 3\DMC3.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PackageEditors\Devil May Cry 3\DMC3.Designer.cs">
+      <DependentUpon>DMC3.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PackageEditors\Devil May Cry 3\DMC3Save.cs" />
+    <Compile Include="PackageEditors\Devil May Cry 4\DevilMayCry4.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PackageEditors\Devil May Cry 4\DevilMayCry4.Designer.cs">
+      <DependentUpon>DevilMayCry4.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PackageEditors\Devil May Cry 4\DevilMayCry4Save.cs" />
+    <Compile Include="PackageEditors\Devil May Cry\DevilMayCry.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PackageEditors\Devil May Cry\DevilMayCry.Designer.cs">
+      <DependentUpon>DevilMayCry.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PackageEditors\Devil May Cry\DevilMayCrySave.cs" />
+    <Compile Include="PackageEditors\Dirt 2\Dirt2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PackageEditors\Dirt 2\Dirt2.Designer.cs">
+      <DependentUpon>Dirt2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PackageEditors\Dirt 2\Dirt2Save.cs" />
+    <Compile Include="PackageEditors\Dirt 3\Dirt3.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PackageEditors\Dirt 3\Dirt3.Designer.cs">
+      <DependentUpon>Dirt3.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PackageEditors\Dirt 3\Dirt3Save.cs" />
+    <Compile Include="PackageEditors\Dirt Showdown\DirtShowdown.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PackageEditors\Dirt Showdown\DirtShowdown.Designer.cs">
+      <DependentUpon>DirtShowdown.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PackageEditors\Dirt Showdown\DirtShowdownSave.cs" />
+    <Compile Include="PackageEditors\Dishonored\Dishonored.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PackageEditors\Dishonored\Dishonored.Designer.cs">
+      <DependentUpon>Dishonored.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PackageEditors\Dishonored\DishonoredSave.cs" />
+    <Compile Include="PackageEditors\Dragons Dogma\DragonsDogma.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PackageEditors\Dragons Dogma\DragonsDogma.Designer.cs">
+      <DependentUpon>DragonsDogma.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PackageEditors\Dragons Dogma\DragonsDogmaSave.cs" />
+    <Compile Include="PackageEditors\Fable 2\Fable2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PackageEditors\Fable 2\Fable2.Designer.cs">
+      <DependentUpon>Fable2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PackageEditors\Fable 2\Fable2Class.cs" />
+    <Compile Include="PackageEditors\Far Cry 3\FarCry3.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PackageEditors\Far Cry 3\FarCry3.Designer.cs">
+      <DependentUpon>FarCry3.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PackageEditors\Far Cry 3\FarCry3Attributes.cs" />
+    <Compile Include="PackageEditors\Far Cry 3\FarCry3Save.cs" />
+    <Compile Include="PackageEditors\Far Cry 3\FarCry3SaveStructures.cs" />
+    <Compile Include="PackageEditors\FEAR 2\FEAR2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PackageEditors\FEAR 2\FEAR2.Designer.cs">
+      <DependentUpon>FEAR2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PackageEditors\FEAR 2\FEAR2Class.cs" />
+    <Compile Include="PackageEditors\FEAR 3\FEAR3Class.cs" />
+    <Compile Include="PackageEditors\FEAR 3\FEAR3_SaveEditor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PackageEditors\FEAR 3\FEAR3_SaveEditor.Designer.cs">
+      <DependentUpon>FEAR3_SaveEditor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PackageEditors\FEAR\FEAR.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PackageEditors\FEAR\FEAR.Designer.cs">
+      <DependentUpon>FEAR.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PackageEditors\FEAR\FEARClass.cs" />
+    <Compile Include="PackageEditors\FIFA 11\FIFA11.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PackageEditors\FIFA 11\FIFA11.Designer.cs">
+      <DependentUpon>FIFA11.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PackageEditors\FIFA 11\FIFA11Class.cs" />
+    <Compile Include="PackageEditors\FIFA 12\FIFA12.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PackageEditors\FIFA 12\FIFA12.Designer.cs">
+      <DependentUpon>FIFA12.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PackageEditors\FIFA 12\FIFA12_GameSave.cs" />
+    <Compile Include="PackageEditors\FIFA 13\FIFA13.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PackageEditors\FIFA 13\FIFA13.Designer.cs">
+      <DependentUpon>FIFA13.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PackageEditors\FIFA 13\FIFA13_GameSave.cs" />
+    <Compile Include="PackageEditors\Forza 3\Forza3Liveries.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PackageEditors\Forza 3\Forza3Liveries.Designer.cs">
+      <DependentUpon>Forza3Liveries.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PackageEditors\Forza 3\Forza3SS.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PackageEditors\Forza 3\Forza3SS.Designer.cs">
+      <DependentUpon>Forza3SS.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PackageEditors\Forza 4\Forza4.cs" />
+    <Compile Include="PackageEditors\Forza 4\Forza4Livery.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PackageEditors\Forza 4\Forza4Livery.Designer.cs">
+      <DependentUpon>Forza4Livery.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PackageEditors\Forza 4\Forza4Profile.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PackageEditors\Forza 4\Forza4Profile.Designer.cs">
+      <DependentUpon>Forza4Profile.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PackageEditors\Forza 4\Forza4Ss.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PackageEditors\Forza 4\Forza4Ss.Designer.cs">
+      <DependentUpon>Forza4Ss.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PackageEditors\Forza Horizon\ForzaHorizon.cs" />
+    <Compile Include="PackageEditors\Forza Horizon\ForzaHorizonLivery.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PackageEditors\Forza Horizon\ForzaHorizonLivery.Designer.cs">
+      <DependentUpon>ForzaHorizonLivery.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PackageEditors\Forza Horizon\ForzaHorizonProfile.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PackageEditors\Forza Horizon\ForzaHorizonProfile.Designer.cs">
+      <DependentUpon>ForzaHorizonProfile.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PackageEditors\Forza Horizon\ForzaHorizonSS.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PackageEditors\Forza Horizon\ForzaHorizonSS.Designer.cs">
+      <DependentUpon>ForzaHorizonSS.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PackageEditors\Gamer Picture Manager\GamerPictureManager.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PackageEditors\Gamer Picture Manager\GamerPictureManager.Designer.cs">
+      <DependentUpon>GamerPictureManager.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PackageEditors\Gears of War 2\Gears2.cs" />
+    <Compile Include="PackageEditors\Gears of War 2\GearsOfWar2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PackageEditors\Gears of War 2\GearsOfWar2.Designer.cs">
+      <DependentUpon>GearsOfWar2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PackageEditors\Gears of War 3\GearGame.cs" />
+    <Compile Include="PackageEditors\Gears of War 3\GearsOfWar3.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PackageEditors\Gears of War 3\GearsOfWar3.Designer.cs">
+      <DependentUpon>GearsOfWar3.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PackageEditors\Gears of War 3\PlayerData.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PackageEditors\Gears of War 3\PlayerData.Designer.cs">
+      <DependentUpon>PlayerData.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PackageEditors\Gears of War 3\PlayerStorage.cs" />
+    <Compile Include="PackageEditors\Gears of War 3\ProfileData.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PackageEditors\Gears of War 3\ProfileData.Designer.cs">
+      <DependentUpon>ProfileData.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PackageEditors\Gears of War\GearsOfWar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PackageEditors\Gears of War\GearsOfWar.Designer.cs">
+      <DependentUpon>GearsOfWar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PackageEditors\Grand Theft Auto IV\GrandTheftAutoIV.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PackageEditors\Grand Theft Auto IV\GrandTheftAutoIV.Designer.cs">
+      <DependentUpon>GrandTheftAutoIV.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PackageEditors\Grand Theft Auto IV\GrandTheftAutoIVClass.cs" />
+    <Compile Include="PackageEditors\Assassin%27s Creed II\AssassinsCreedII.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PackageEditors\Assassin%27s Creed II\AssassinsCreedII.Designer.cs">
+      <DependentUpon>AssassinsCreedII.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PackageEditors\Achievement Unlocker\AchievementUnlocker.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PackageEditors\Achievement Unlocker\AchievementUnlocker.Designer.cs">
+      <DependentUpon>AchievementUnlocker.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PackageEditors\Avatar Color Editor\AvatarColorEditor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PackageEditors\Avatar Color Editor\AvatarColorEditor.Designer.cs">
+      <DependentUpon>AvatarColorEditor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PackageEditors\Battlefield BFC2\BattlefieldBC2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PackageEditors\Battlefield BFC2\BattlefieldBC2.Designer.cs">
+      <DependentUpon>BattlefieldBC2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PackageEditors\Battlefield BFC2\BattlefieldBC2Class.cs" />
+    <Compile Include="PackageEditors\Crackdown\Crackdown.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PackageEditors\Crackdown\Crackdown.Designer.cs">
+      <DependentUpon>Crackdown.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PackageEditors\EditorControl.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PackageEditors\EditorControl.Designer.cs">
+      <DependentUpon>EditorControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Functions\Client.cs" />
+    <Compile Include="Functions\Global.cs" />
+    <Compile Include="Functions\UI.cs" />
+    <Compile Include="IO\EndianIO.cs" />
+    <Compile Include="Forms\Main.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Main.Designer.cs">
+      <DependentUpon>Main.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Splash.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PackageEditors\Forza 3\Forza3.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PackageEditors\Forza 3\Forza3.Designer.cs">
+      <DependentUpon>Forza3.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PackageEditors\Forza 3\Forza3Class.cs" />
+    <Compile Include="PackageEditors\Halo 4\MP\H4MegaloEditor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PackageEditors\Halo 4\MP\H4MegaloEditor.Designer.cs">
+      <DependentUpon>H4MegaloEditor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PackageEditors\Halo 4\SP\Controls\H4BipedObject.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PackageEditors\Halo 4\SP\Controls\H4BipedObject.designer.cs">
+      <DependentUpon>H4BipedObject.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PackageEditors\Halo 4\SP\Controls\H4EditorContainer.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PackageEditors\Halo 4\SP\Controls\H4EditorContainer.designer.cs">
+      <DependentUpon>H4EditorContainer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PackageEditors\Halo 4\SP\Controls\H4GeneralObject.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PackageEditors\Halo 4\SP\Controls\H4GeneralObject.designer.cs">
+      <DependentUpon>H4GeneralObject.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PackageEditors\Halo 4\SP\Controls\H4IdentControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PackageEditors\Halo 4\SP\Controls\H4IdentControl.designer.cs">
+      <DependentUpon>H4IdentControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PackageEditors\Halo 4\SP\Controls\H4WeaponControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PackageEditors\Halo 4\SP\Controls\H4WeaponControl.designer.cs">
+      <DependentUpon>H4WeaponControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PackageEditors\Halo 4\SP\Halo4CampaignEditor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PackageEditors\Halo 4\SP\Halo4CampaignEditor.designer.cs">
+      <DependentUpon>Halo4CampaignEditor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PackageEditors\Halo 4\SP\Halo4CampaignSave.cs" />
+    <Compile Include="PackageEditors\Halo 4\Profile\Halo4Profile.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PackageEditors\Halo 4\Profile\Halo4Profile.Designer.cs">
+      <DependentUpon>Halo4Profile.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PackageEditors\Halo 4\Profile\Halo4ProfileClass.cs">
+    </Compile>
+    <Compile Include="PackageEditors\Halo 4\Halo4TagList.cs" />
+    <Compile Include="PackageEditors\Halo Reach\MP\HReachMegaloEditor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PackageEditors\Halo Reach\MP\HReachMegaloEditor.Designer.cs">
+      <DependentUpon>HReachMegaloEditor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PackageEditors\Halo Reach\SP\HaloReach.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PackageEditors\Halo Reach\SP\HaloReach.Designer.cs">
+      <DependentUpon>HaloReach.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PackageEditors\Halo Reach\Profile\HaloReachClass.cs" />
+    <Compile Include="PackageEditors\Halo Reach\Profile\HaloReachSettings.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PackageEditors\Halo Reach\Profile\HaloReachSettings.designer.cs">
+      <DependentUpon>HaloReachSettings.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PackageEditors\Halo Reach\SP\ReachSave.cs" />
+    <Compile Include="PackageEditors\Homefront\Homefront.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PackageEditors\Homefront\Homefront.designer.cs">
+      <DependentUpon>Homefront.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PackageEditors\Homefront\HomefrontSave.cs" />
+    <Compile Include="PackageEditors\Injustice Gods Among Us\InjusticeGAU.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PackageEditors\Injustice Gods Among Us\InjusticeGAU.Designer.cs">
+      <DependentUpon>InjusticeGAU.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PackageEditors\Injustice Gods Among Us\InjusticeGAUSave.cs" />
+    <Compile Include="PackageEditors\Joe Danger SE\JoeDanger.cs" />
+    <Compile Include="PackageEditors\Joe Danger SE\JoeDangerSE.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PackageEditors\Joe Danger SE\JoeDangerSE.Designer.cs">
+      <DependentUpon>JoeDangerSE.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PackageEditors\Just Cause 2\JustCause2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PackageEditors\Just Cause 2\JustCause2.Designer.cs">
+      <DependentUpon>JustCause2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PackageEditors\LA Noire\LANoire.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PackageEditors\LA Noire\LANoire.Designer.cs">
+      <DependentUpon>LANoire.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PackageEditors\LA Noire\LANoireSave.cs" />
+    <Compile Include="PackageEditors\Left 4 Dead 2\Left4Dead2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PackageEditors\Left 4 Dead 2\Left4Dead2.Designer.cs">
+      <DependentUpon>Left4Dead2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PackageEditors\LIMBO\LIMBO.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PackageEditors\LIMBO\LIMBO.Designer.cs">
+      <DependentUpon>LIMBO.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PackageEditors\Lost Odyssey\LostOdyssey.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PackageEditors\Lost Odyssey\LostOdyssey.Designer.cs">
+      <DependentUpon>LostOdyssey.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PackageEditors\Magic 2013\Magic2013.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PackageEditors\Magic 2013\Magic2013.Designer.cs">
+      <DependentUpon>Magic2013.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PackageEditors\Magic 2013\Magic2013Class.cs" />
+    <Compile Include="PackageEditors\Marble Blast Ultra\MarbleBlastUltra.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PackageEditors\Marble Blast Ultra\MarbleBlastUltra.Designer.cs">
+      <DependentUpon>MarbleBlastUltra.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PackageEditors\Max Payne 3\MaxPayne3.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PackageEditors\Max Payne 3\MaxPayne3.Designer.cs">
+      <DependentUpon>MaxPayne3.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PackageEditors\Max Payne 3\MP3Save.cs" />
+    <Compile Include="PackageEditors\Medal Of Honor\MedalOfHonor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PackageEditors\Medal Of Honor\MedalOfHonor.Designer.cs">
+      <DependentUpon>MedalOfHonor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PackageEditors\Medal Of Honor\MedalOfHonorSave.cs" />
+    <Compile Include="PackageEditors\Mercury Hg\MercuryHg.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PackageEditors\Mercury Hg\MercuryHg.Designer.cs">
+      <DependentUpon>MercuryHg.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PackageEditors\Mercury Hg\MercuryHgSave.cs" />
+    <Compile Include="PackageEditors\Metro 2033\Controls\MetroUserConfigControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PackageEditors\Metro 2033\Controls\MetroUserConfigControl.Designer.cs">
+      <DependentUpon>MetroUserConfigControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PackageEditors\Metro 2033\Metro2033.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PackageEditors\Metro 2033\Metro2033.Designer.cs">
+      <DependentUpon>Metro2033.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PackageEditors\Metro Last Light\MetroLastLightConfig.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PackageEditors\Metro Last Light\MetroLastLightConfig.Designer.cs">
+      <DependentUpon>MetroLastLightConfig.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PackageEditors\Midnight Club LA\MCLASaveGame.cs" />
+    <Compile Include="PackageEditors\Midnight Club LA\MidnightClubLA.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PackageEditors\Midnight Club LA\MidnightClubLA.Designer.cs">
+      <DependentUpon>MidnightClubLA.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PackageEditors\MLB 2K13\MLB2K13.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PackageEditors\MLB 2K13\MLB2K13.Designer.cs">
+      <DependentUpon>MLB2K13.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PackageEditors\MLB 2K13\MLB2K13Save.cs" />
+    <Compile Include="PackageEditors\Modern Warfare 3\CampaignSave.cs" />
+    <Compile Include="PackageEditors\Modern Warfare 3\MW3CampaignSave.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PackageEditors\Modern Warfare 3\MW3CampaignSave.Designer.cs">
+      <DependentUpon>MW3CampaignSave.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PackageEditors\Modern Warfare 3\Segment.cs" />
+    <Compile Include="PackageEditors\Modern Warfare 3\Segments\Segment2.cs" />
+    <Compile Include="PackageEditors\Modern Warfare 3\TitleSetting.cs" />
+    <Compile Include="PackageEditors\Motorcross Madness\MotocrossMadness.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PackageEditors\Motorcross Madness\MotocrossMadness.Designer.cs">
+      <DependentUpon>MotocrossMadness.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PackageEditors\Motorcross Madness\MotorcrossMadnessSave.cs" />
+    <Compile Include="PackageEditors\Naruto Ultimate Ninja Storm 2\NarutoUltimateNinjaStorm2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PackageEditors\Naruto Ultimate Ninja Storm 2\NarutoUltimateNinjaStorm2.Designer.cs">
+      <DependentUpon>NarutoUltimateNinjaStorm2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PackageEditors\Naruto UNS3\NarutoUNS3.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PackageEditors\Naruto UNS3\NarutoUNS3.Designer.cs">
+      <DependentUpon>NarutoUNS3.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PackageEditors\Naruto UNS3\NarutoUNS3Save.cs" />
+    <Compile Include="PackageEditors\Naughty Bear\NaughtyBear.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PackageEditors\Naughty Bear\NaughtyBear.Designer.cs">
+      <DependentUpon>NaughtyBear.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PackageEditors\NBA 2K13\NBA2K13.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PackageEditors\NBA 2K13\NBA2K13.Designer.cs">
+      <DependentUpon>NBA2K13.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PackageEditors\NBA 2K13\NBA2K13Save.cs" />
+    <Compile Include="PackageEditors\NBA 2K14\NBA2K14.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PackageEditors\NBA 2K14\NBA2K14.Designer.cs">
+      <DependentUpon>NBA2K14.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PackageEditors\NBA 2K14\NBA2K14Class.cs" />
+    <Compile Include="PackageEditors\NBA 2K15\NBA2K15.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PackageEditors\NBA 2K15\NBA2K15.Designer.cs">
+      <DependentUpon>NBA2K15.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PackageEditors\NBA 2K15\NBA2K15Class.cs" />
+    <Compile Include="PackageEditors\Need for Speed HP\NeedForSpeedHP.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PackageEditors\Need for Speed HP\NeedForSpeedHP.Designer.cs">
+      <DependentUpon>NeedForSpeedHP.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PackageEditors\NHL 12\NHL12_CardEditor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PackageEditors\NHL 12\NHL12_CardEditor.Designer.cs">
+      <DependentUpon>NHL12_CardEditor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PackageEditors\Ninja Gaiden 3 RE\NinjaGaiden.cs" />
+    <Compile Include="PackageEditors\Ninja Gaiden 3 RE\NinjaGaiden3RE.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PackageEditors\Ninja Gaiden 3 RE\NinjaGaiden3RE.Designer.cs">
+      <DependentUpon>NinjaGaiden3RE.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PackageEditors\NPlus\NPlus.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PackageEditors\NPlus\NPlus.Designer.cs">
+      <DependentUpon>NPlus.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PackageEditors\NPlus\NPlusSave.cs" />
+    <Compile Include="PackageEditors\Oblivion\Oblivion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PackageEditors\Oblivion\Oblivion.Designer.cs">
+      <DependentUpon>Oblivion.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PackageEditors\Oblivion\OblivionClass.cs" />
+    <Compile Include="PackageClasses\Checksum.cs" />
+    <Compile Include="PackageClasses\EA.cs" />
+    <Compile Include="PackageClasses\ICE.cs" />
+    <Compile Include="PackageEditors\Package Manager\PackageManager.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PackageEditors\Package Manager\PackageManager.Designer.cs">
+      <DependentUpon>PackageManager.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PackageEditors\Plants vs Zombies\PlantsvsZombies.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PackageEditors\Plants vs Zombies\PlantsvsZombies.Designer.cs">
+      <DependentUpon>PlantsvsZombies.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PackageEditors\Project Gotham Racing 4\PGR4.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PackageEditors\Project Gotham Racing 4\PGR4.Designer.cs">
+      <DependentUpon>PGR4.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PackageEditors\Project Gotham Racing 4\PGR4SaveGame.cs" />
+    <Compile Include="PackageEditors\Quake Arena Arcade\QuakeArenaArcade.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PackageEditors\Quake Arena Arcade\QuakeArenaArcade.Designer.cs">
+      <DependentUpon>QuakeArenaArcade.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PackageEditors\Quake Arena Arcade\QuakeArenaArcadeSave.cs" />
+    <Compile Include="PackageEditors\Rage\Rage.cs" />
+    <Compile Include="PackageEditors\Rage\RageSave.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PackageEditors\Rage\RageSave.Designer.cs">
+      <DependentUpon>RageSave.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PackageEditors\Red Dead Redemption\RdRClass.cs" />
+    <Compile Include="PackageEditors\Red Dead Redemption\RedDeadRedemption.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PackageEditors\Red Dead Redemption\RedDeadRedemption.Designer.cs">
+      <DependentUpon>RedDeadRedemption.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PackageEditors\Red Faction Guerrilla\RedFactionGuerrilla.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PackageEditors\Red Faction Guerrilla\RedFactionGuerrilla.Designer.cs">
+      <DependentUpon>RedFactionGuerrilla.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PackageEditors\Resident Evil 5\RE5.cs">
+    </Compile>
+    <Compile Include="PackageEditors\Resident Evil 5\ResidentEvil5.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PackageEditors\Resident Evil 5\ResidentEvil5.Designer.cs">
+      <DependentUpon>ResidentEvil5.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PackageEditors\Resident Evil 6\RE6GameSave.cs" />
+    <Compile Include="PackageEditors\Resident Evil 6\ResidentEvil6.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PackageEditors\Resident Evil 6\ResidentEvil6.Designer.cs">
+      <DependentUpon>ResidentEvil6.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PackageEditors\Resident Evil Code Veronica X HD\CodeVeronicaX.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PackageEditors\Resident Evil Code Veronica X HD\CodeVeronicaX.Designer.cs">
+      <DependentUpon>CodeVeronicaX.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PackageEditors\Resident Evil Code Veronica X HD\CodeVeronicaXSave.cs" />
+    <Compile Include="PackageEditors\Resident Evil Code Veronica X HD\Controls\CVXSaveEntryControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PackageEditors\Resident Evil Code Veronica X HD\Controls\CVXSaveEntryControl.Designer.cs">
+      <DependentUpon>CVXSaveEntryControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PackageEditors\Resident Evil Code Veronica X HD\Controls\CVXEditorContainer.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PackageEditors\Resident Evil Code Veronica X HD\Controls\CVXEditorContainer.Designer.cs">
+      <DependentUpon>CVXEditorContainer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PackageEditors\Resident Evil Code Veronica X HD\Controls\CVXItem.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PackageEditors\Resident Evil Code Veronica X HD\Controls\CVXItem.Designer.cs">
+      <DependentUpon>CVXItem.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PackageEditors\Resident Evil Code Veronica X HD\Controls\CVXItemList.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PackageEditors\Resident Evil Code Veronica X HD\Controls\CVXItemList.Designer.cs">
+      <DependentUpon>CVXItemList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PackageEditors\Resident Evil ORC\ORCSave.cs" />
+    <Compile Include="PackageEditors\Resident Evil ORC\ResidentEvil_ORC.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PackageEditors\Resident Evil ORC\ResidentEvil_ORC.Designer.cs">
+      <DependentUpon>ResidentEvil_ORC.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PackageEditors\Saint%27s Row GOOH\SaintsRowGOOH.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PackageEditors\Saint%27s Row GOOH\SaintsRowGOOH.Designer.cs">
+      <DependentUpon>SaintsRowGOOH.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PackageEditors\Saint%27s Row GOOH\SrGOOH_GameSave.cs" />
+    <Compile Include="PackageEditors\Saint%27s Row GOOH\SrGOOH_SaveData.cs" />
+    <Compile Include="PackageEditors\Saint%27s Row IV\SaintsRowIV.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PackageEditors\Saint%27s Row IV\SaintsRowIV.Designer.cs">
+      <DependentUpon>SaintsRowIV.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PackageEditors\Saint%27s Row IV\SrIV_GameSave.cs" />
+    <Compile Include="PackageEditors\Saint%27s Row IV\SrIV_SaveData.cs" />
+    <Compile Include="PackageEditors\SaintsRow\Sr3_GameSave.cs" />
+    <Compile Include="PackageEditors\SaintsRow\SaintsRow3.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PackageEditors\SaintsRow\SaintsRow3.Designer.cs">
+      <DependentUpon>SaintsRow3.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PackageEditors\SaintsRow\Sr3_Upgrades.cs" />
+    <Compile Include="PackageEditors\Shadows of the Damned\Shadows_of_the_Damned.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PackageEditors\Shadows of the Damned\Shadows_of_the_Damned.Designer.cs">
+      <DependentUpon>Shadows_of_the_Damned.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PackageEditors\Shadows of the Damned\SotD.cs" />
+    <Compile Include="PackageEditors\Skyrim\Skyrim.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PackageEditors\Skyrim\Skyrim.Designer.cs">
+      <DependentUpon>Skyrim.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PackageEditors\Skyrim\SkyrimSave.cs" />
+    <Compile Include="PackageEditors\Skyrim\SkyrimSaveData.cs" />
+    <Compile Include="PackageEditors\Sleeping Dogs\SleepingDogs.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PackageEditors\Sleeping Dogs\SleepingDogs.Designer.cs">
+      <DependentUpon>SleepingDogs.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PackageEditors\Sleeping Dogs\SleepingDogsSave.cs" />
+    <Compile Include="PackageEditors\Sonic The Hedgehog\SonicTheHedgehog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PackageEditors\Sonic The Hedgehog\SonicTheHedgehog.Designer.cs">
+      <DependentUpon>SonicTheHedgehog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PackageEditors\SSX Tricky\SSXTricky.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PackageEditors\SSX Tricky\SSXTricky.Designer.cs">
+      <DependentUpon>SSXTricky.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PackageEditors\SSX Tricky\SSXTrickySave.cs" />
+    <Compile Include="PackageEditors\Star Wars TFU II\StarWarsTFUII.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PackageEditors\Star Wars TFU II\StarWarsTFUII.Designer.cs">
+      <DependentUpon>StarWarsTFUII.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PackageEditors\State of Decay\Controls\NSCharacterObject.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PackageEditors\State of Decay\Controls\NSCharacterObject.Designer.cs">
+      <DependentUpon>NSCharacterObject.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PackageEditors\State of Decay\Controls\NSEnclaveObject.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PackageEditors\State of Decay\Controls\NSEnclaveObject.Designer.cs">
+      <DependentUpon>NSEnclaveObject.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PackageEditors\State of Decay\Controls\NSInventoryConsumableObject.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PackageEditors\State of Decay\Controls\NSInventoryConsumableObject.Designer.cs">
+      <DependentUpon>NSInventoryConsumableObject.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PackageEditors\State of Decay\Controls\NSEditorContainer.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PackageEditors\State of Decay\Controls\NSEditorContainer.Designer.cs">
+      <DependentUpon>NSEditorContainer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PackageEditors\State of Decay\Controls\NSInventoryGunObject.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PackageEditors\State of Decay\Controls\NSInventoryGunObject.Designer.cs">
+      <DependentUpon>NSInventoryGunObject.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PackageEditors\State of Decay\Controls\NSInventoryListObject.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PackageEditors\State of Decay\Controls\NSInventoryListObject.Designer.cs">
+      <DependentUpon>NSInventoryListObject.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PackageEditors\State of Decay\Controls\NSInventoryWeaponObject.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PackageEditors\State of Decay\Controls\NSInventoryWeaponObject.Designer.cs">
+      <DependentUpon>NSInventoryWeaponObject.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PackageEditors\State of Decay\StateofDecay.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PackageEditors\State of Decay\StateofDecay.Designer.cs">
+      <DependentUpon>StateofDecay.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PackageEditors\State of Decay\StateofDecayData.cs" />
+    <Compile Include="PackageEditors\State of Decay\StateofDecaySave.cs" />
+    <Compile Include="PackageEditors\Super Meat Boy\SuperMeatBoy.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PackageEditors\Super Meat Boy\SuperMeatBoy.Designer.cs">
+      <DependentUpon>SuperMeatBoy.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PackageEditors\Super Meat Boy\SuperMeatBoySave.cs" />
+    <Compile Include="PackageEditors\Swarm\Swarm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PackageEditors\Swarm\Swarm.Designer.cs">
+      <DependentUpon>Swarm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PackageEditors\Test Drive Unlimited 2\TestDriveUnlimited2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PackageEditors\Test Drive Unlimited 2\TestDriveUnlimited2.Designer.cs">
+      <DependentUpon>TestDriveUnlimited2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PackageEditors\Test Drive Unlimited\TestDriveUnlimited.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PackageEditors\Test Drive Unlimited\TestDriveUnlimited.Designer.cs">
+      <DependentUpon>TestDriveUnlimited.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PackageEditors\The Saboteur\Saboteur.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PackageEditors\The Saboteur\Saboteur.Designer.cs">
+      <DependentUpon>Saboteur.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PackageEditors\The Saboteur\SaboteurClass.cs" />
+    <Compile Include="PackageEditors\Theme Creator\ThemeCreator.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PackageEditors\Theme Creator\ThemeCreator.Designer.cs">
+      <DependentUpon>ThemeCreator.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PackageEditors\Tomb Raider\TombRaider.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PackageEditors\Tomb Raider\TombRaider.Designer.cs">
+      <DependentUpon>TombRaider.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PackageEditors\Tomb Raider\TombRaiderSave.cs" />
+    <Compile Include="PackageEditors\TW PGA Tour 14\TWPGATour14.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PackageEditors\TW PGA Tour 14\TWPGATour14.Designer.cs">
+      <DependentUpon>TWPGATour14.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PackageEditors\TW PGA Tour 14\TWPGATour14Save.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="PackageEditors\Watch Dogs\Controls\WDEditorContainer.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PackageEditors\Watch Dogs\Controls\WDEditorContainer.Designer.cs">
+      <DependentUpon>WDEditorContainer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PackageEditors\Watch Dogs\Controls\WDInventoryCarsOnDemandList.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PackageEditors\Watch Dogs\Controls\WDInventoryCarsOnDemandList.Designer.cs">
+      <DependentUpon>WDInventoryCarsOnDemandList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PackageEditors\Watch Dogs\Controls\WDInventoryWheelList.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PackageEditors\Watch Dogs\Controls\WDInventoryWheelList.Designer.cs">
+      <DependentUpon>WDInventoryWheelList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PackageEditors\Watch Dogs\WatchDogs.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PackageEditors\Watch Dogs\WatchDogs.Designer.cs">
+      <DependentUpon>WatchDogs.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PackageEditors\Watch Dogs\WatchDogsData.cs" />
+    <Compile Include="PackageEditors\Watch Dogs\WatchDogsSave.cs" />
+    <Compile Include="PackageEditors\WET\WET.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PackageEditors\WET\WET.Designer.cs">
+      <DependentUpon>WET.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Forms\About.resx">
+      <DependentUpon>About.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\GamercardViewer.resx">
+      <DependentUpon>GamercardViewer.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ProfileManager.resx">
+      <DependentUpon>ProfileManager.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Registration.resx">
+      <DependentUpon>Registration.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ProfileSelector.resx">
+      <DependentUpon>ProfileSelector.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Splash.resx">
+      <DependentUpon>Splash.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\DeviceWindow.resx">
+      <DependentUpon>DeviceWindow.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\TitleCrawler.resx">
+      <DependentUpon>TitleCrawler.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\TitleIDFinder.resx">
+      <DependentUpon>TitleIDFinder.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Main.resx">
+      <DependentUpon>Main.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\TitleSettingsManager.resx">
+      <DependentUpon>TitleSettingsManager.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="IO\TempBitStream.resx">
+      <DependentUpon>TempBitStream.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PackageEditors\Account Editor\AccountEditor.resx">
+      <DependentUpon>AccountEditor.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PackageEditors\Achievement Unlocker\AchievementUnlocker.resx">
+      <DependentUpon>AchievementUnlocker.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PackageEditors\Alan Wake\AlanWake.resx">
+      <DependentUpon>AlanWake.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PackageEditors\Alice\Alice.resx">
+      <DependentUpon>Alice.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PackageEditors\Assassin%27s Creed Brotherhood\ACBrotherhood.resx">
+      <DependentUpon>ACBrotherhood.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PackageEditors\Assassin%27s Creed III\ACIII.resx">
+      <DependentUpon>ACIII.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PackageEditors\Assassin%27s Creed IV\ACIV.resx">
+      <DependentUpon>ACIV.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PackageEditors\Assassin%27s Creed Revelations\ACRevelations.resx">
+      <DependentUpon>ACRevelations.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PackageEditors\Assassin%27s Creed Rogue\ACRogue.resx">
+      <DependentUpon>ACRogue.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PackageEditors\Assassin%27s Creed\AssassinsCreed.resx">
+      <DependentUpon>AssassinsCreed.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PackageEditors\Assassin%27s Creed II\AssassinsCreedII.resx">
+      <DependentUpon>AssassinsCreedII.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PackageEditors\Avatar Award Unlocker\AvatarAwardUnlocker.resx">
+      <DependentUpon>AvatarAwardUnlocker.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PackageEditors\Avatar Color Editor\AvatarColorEditor.resx">
+      <DependentUpon>AvatarColorEditor.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PackageEditors\Bastion\Bastion.resx">
+      <DependentUpon>Bastion.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PackageEditors\Batman Arkham City\BatmanArkhamCity.resx">
+      <DependentUpon>BatmanArkhamCity.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PackageEditors\BattleBlock Theater\BattleBlockTheater.resx">
+      <DependentUpon>BattleBlockTheater.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PackageEditors\Battlefield 4\Battlefield4.resx">
+      <DependentUpon>Battlefield4.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PackageEditors\Battlefield BFC2\BattlefieldBC2.resx">
+      <DependentUpon>BattlefieldBC2.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PackageEditors\Bayonetta\Bayonetta.resx">
+      <DependentUpon>Bayonetta.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PackageEditors\Bionic Commando\BionicCommando.resx">
+      <DependentUpon>BionicCommando.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PackageEditors\BioShock Infinite\BioShockInfinite.resx">
+      <DependentUpon>BioShockInfinite.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PackageEditors\BioShock\BioShock.resx">
+      <DependentUpon>BioShock.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PackageEditors\Borderlands\Borderlands.resx">
+      <DependentUpon>Borderlands.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PackageEditors\Brink\Brink.resx">
+      <DependentUpon>Brink.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PackageEditors\Brutal Legend\BrutalLegend.resx">
+      <DependentUpon>BrutalLegend.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PackageEditors\Bulletstorm\Bulletstorm.resx">
+      <DependentUpon>Bulletstorm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PackageEditors\Call of Duty Advanced Warfare\CoDAdvancedWarfare.resx">
+      <DependentUpon>CoDAdvancedWarfare.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PackageEditors\Call of Duty Ghosts\CoDGhosts.resx">
+      <DependentUpon>CoDGhosts.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PackageEditors\Captain America\CaptainAmerica.resx">
+      <DependentUpon>CaptainAmerica.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PackageEditors\Castle Crashers\CastleCrashers.resx">
+      <DependentUpon>CastleCrashers.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PackageEditors\Crackdown 2\Crackdown2.resx">
+      <DependentUpon>Crackdown2.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PackageEditors\Crackdown\Crackdown.resx">
+      <DependentUpon>Crackdown.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PackageEditors\Crysis 2\Crysis2Campaign.resx">
+      <DependentUpon>Crysis2Campaign.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PackageEditors\Crysis 2\Crysis2Profile.resx">
+      <DependentUpon>Crysis2Profile.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PackageEditors\Crysis 2\Crysis2Save.resx">
+      <DependentUpon>Crysis2Save.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PackageEditors\Crysis 3\Crysis3SaveGame.resx">
+      <DependentUpon>Crysis3SaveGame.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PackageEditors\Darksiders\Darksiders.resx">
+      <DependentUpon>Darksiders.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PackageEditors\Dead Rising 2\DeadRising2.resx">
+      <DependentUpon>DeadRising2.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PackageEditors\Dead Space 2\DeadSpace2.resx">
+      <DependentUpon>DeadSpace2.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PackageEditors\Dead Space 3\DeadSpace3.resx">
+      <DependentUpon>DeadSpace3.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PackageEditors\Dead Space\DeadSpace.resx">
+      <DependentUpon>DeadSpace.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PackageEditors\Devil May Cry 3\DMC3.resx">
+      <DependentUpon>DMC3.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PackageEditors\Devil May Cry 4\DevilMayCry4.resx">
+      <DependentUpon>DevilMayCry4.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PackageEditors\Devil May Cry\DevilMayCry.resx">
+      <DependentUpon>DevilMayCry.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PackageEditors\Diablo III\DiabloIII.resx">
+      <DependentUpon>DiabloIII.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PackageEditors\Dirt 2\Dirt2.resx">
+      <DependentUpon>Dirt2.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PackageEditors\Dirt 3\Dirt3.resx">
+      <DependentUpon>Dirt3.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PackageEditors\Dirt Showdown\DirtShowdown.resx">
+      <DependentUpon>DirtShowdown.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PackageEditors\Dragonball XenoVerse\DragonballXenoVerse.resx">
+      <DependentUpon>DragonballXenoVerse.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PackageEditors\Dragons Dogma\DragonsDogma.resx">
+      <DependentUpon>DragonsDogma.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PackageEditors\EditorControl.resx">
+      <DependentUpon>EditorControl.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PackageEditors\Fable 2\Fable2.resx">
+      <DependentUpon>Fable2.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PackageEditors\Far Cry 3 Blood Dragon\FarCry3BloodDragon.resx">
+      <DependentUpon>FarCry3BloodDragon.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PackageEditors\Far Cry 3\FarCry3.resx">
+      <DependentUpon>FarCry3.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PackageEditors\FEAR 2\FEAR2.resx">
+      <DependentUpon>FEAR2.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PackageEditors\FEAR\FEAR.resx">
+      <DependentUpon>FEAR.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PackageEditors\FIFA 11\FIFA11.resx">
+      <DependentUpon>FIFA11.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PackageEditors\FIFA 12\FIFA12.resx">
+      <DependentUpon>FIFA12.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PackageEditors\FIFA 13\FIFA13.resx">
+      <DependentUpon>FIFA13.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PackageEditors\FIFA 14\FIFA14.resx">
+      <DependentUpon>FIFA14.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PackageEditors\FIFA 15\FIFA15.resx">
+      <DependentUpon>FIFA15.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PackageEditors\Forza 3\Forza3.resx">
+      <DependentUpon>Forza3.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PackageEditors\Forza 3\Forza3Liveries.resx">
+      <DependentUpon>Forza3Liveries.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PackageEditors\Forza 3\Forza3SS.resx">
+      <DependentUpon>Forza3SS.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PackageEditors\Forza 4\Forza4Livery.resx">
+      <DependentUpon>Forza4Livery.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PackageEditors\Forza 4\Forza4Profile.resx">
+      <DependentUpon>Forza4Profile.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PackageEditors\Forza 4\Forza4Ss.resx">
+      <DependentUpon>Forza4Ss.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PackageEditors\Forza Horizon 2\ForzaHorizon2FastNFurious.resx">
+      <DependentUpon>ForzaHorizon2FastNFurious.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PackageEditors\Forza Horizon 2\ForzaHorizon2Profile.resx">
+      <DependentUpon>ForzaHorizon2Profile.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PackageEditors\Forza Horizon\ForzaHorizonLivery.resx">
+      <DependentUpon>ForzaHorizonLivery.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PackageEditors\Forza Horizon\ForzaHorizonProfile.resx">
+      <DependentUpon>ForzaHorizonProfile.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PackageEditors\Forza Horizon\ForzaHorizonSS.resx">
+      <DependentUpon>ForzaHorizonSS.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PackageEditors\Game Adder\GameAdder.resx">
+      <DependentUpon>GameAdder.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PackageEditors\Gamer Picture Manager\GamerPictureManager.resx">
+      <DependentUpon>GamerPictureManager.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PackageEditors\Gears of War 2\GearsOfWar2.resx">
+      <DependentUpon>GearsOfWar2.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PackageEditors\Gears of War 3\GearsOfWar3.resx">
+      <DependentUpon>GearsOfWar3.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PackageEditors\Gears of War 3\PlayerData.resx">
+      <DependentUpon>PlayerData.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PackageEditors\Gears of War 3\ProfileData.resx">
+      <DependentUpon>ProfileData.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PackageEditors\Gears of War Judgment\Campaign\GearsOfWarJudgment.resx">
+      <DependentUpon>GearsOfWarJudgment.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PackageEditors\Gears of War Judgment\Profile\ProfileEditor.resx">
+      <DependentUpon>ProfileEditor.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PackageEditors\Gears of War Judgment\Stats\StatsEditor.resx">
+      <DependentUpon>StatsEditor.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PackageEditors\Gears of War\GearsOfWar.resx">
+      <DependentUpon>GearsOfWar.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PackageEditors\Grand Theft Auto V\GrandTheftAutoV.resx">
+      <DependentUpon>GrandTheftAutoV.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PackageEditors\Grand Theft Auto IV\GrandTheftAutoIV.resx">
+      <DependentUpon>GrandTheftAutoIV.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PackageEditors\Grid 2\Grid2.resx">
+      <DependentUpon>Grid2.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PackageEditors\Halo 4\MP\H4MegaloEditor.resx">
+      <DependentUpon>H4MegaloEditor.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PackageEditors\Halo 4\SP\Controls\H4BipedObject.resx">
+      <DependentUpon>H4BipedObject.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PackageEditors\Halo 4\SP\Controls\H4EditorContainer.resx">
+      <DependentUpon>H4EditorContainer.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PackageEditors\Halo 4\SP\Controls\H4GeneralObject.resx">
+      <DependentUpon>H4GeneralObject.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PackageEditors\Halo 4\SP\Controls\H4IdentControl.resx">
+      <DependentUpon>H4IdentControl.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PackageEditors\Halo 4\SP\Controls\H4WeaponControl.resx">
+      <DependentUpon>H4WeaponControl.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PackageEditors\Halo 4\SP\Halo4CampaignEditor.resx">
+      <DependentUpon>Halo4CampaignEditor.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PackageEditors\Halo 4\Profile\Halo4Profile.resx">
+      <DependentUpon>Halo4Profile.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PackageEditors\Halo Reach\MP\HReachMegaloEditor.resx">
+      <DependentUpon>HReachMegaloEditor.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PackageEditors\Halo Reach\SP\HaloReach.resx">
+      <DependentUpon>HaloReach.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PackageEditors\Halo Reach\Profile\HaloReachSettings.resx">
+      <DependentUpon>HaloReachSettings.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PackageEditors\Injustice Gods Among Us\InjusticeGAU.resx">
+      <DependentUpon>InjusticeGAU.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PackageEditors\Joe Danger SE\JoeDangerSE.resx">
+      <DependentUpon>JoeDangerSE.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PackageEditors\Just Cause 2\JustCause2.resx">
+      <DependentUpon>JustCause2.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PackageEditors\LA Noire\LANoire.resx">
+      <DependentUpon>LANoire.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PackageEditors\Left 4 Dead 2\Left4Dead2.resx">
+      <DependentUpon>Left4Dead2.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PackageEditors\LIMBO\LIMBO.resx">
+      <DependentUpon>LIMBO.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PackageEditors\Lost Odyssey\LostOdyssey.resx">
+      <DependentUpon>LostOdyssey.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PackageEditors\Magic 2013\Magic2013.resx">
+      <DependentUpon>Magic2013.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PackageEditors\Marble Blast Ultra\MarbleBlastUltra.resx">
+      <DependentUpon>MarbleBlastUltra.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PackageEditors\Max Payne 3\MaxPayne3.resx">
+      <DependentUpon>MaxPayne3.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PackageEditors\Medal Of Honor\MedalOfHonor.resx">
+      <DependentUpon>MedalOfHonor.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PackageEditors\Mercury Hg\MercuryHg.resx">
+      <DependentUpon>MercuryHg.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PackageEditors\Metro 2033\Controls\MetroUserConfigControl.resx">
+      <DependentUpon>MetroUserConfigControl.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PackageEditors\Metro 2033\Metro2033.resx">
+      <DependentUpon>Metro2033.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PackageEditors\Metro Last Light\MetroLastLightConfig.resx">
+      <DependentUpon>MetroLastLightConfig.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PackageEditors\Midnight Club LA\MidnightClubLA.resx">
+      <DependentUpon>MidnightClubLA.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PackageEditors\MLB 2K13\MLB2K13.resx">
+      <DependentUpon>MLB2K13.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PackageEditors\Modern Warfare 3\MW3CampaignSave.resx">
+      <DependentUpon>MW3CampaignSave.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PackageEditors\Motorcross Madness\MotocrossMadness.resx">
+      <DependentUpon>MotocrossMadness.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PackageEditors\Naruto Ultimate Ninja Storm 2\NarutoUltimateNinjaStorm2.resx">
+      <DependentUpon>NarutoUltimateNinjaStorm2.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PackageEditors\Naruto UNS3\NarutoUNS3.resx">
+      <DependentUpon>NarutoUNS3.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PackageEditors\Naughty Bear\NaughtyBear.resx">
+      <DependentUpon>NaughtyBear.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PackageEditors\NBA 2K13\NBA2K13.resx">
+      <DependentUpon>NBA2K13.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PackageEditors\NBA 2K14\NBA2K14.resx">
+      <DependentUpon>NBA2K14.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PackageEditors\Need for Speed HP\NeedForSpeedHP.resx">
+      <DependentUpon>NeedForSpeedHP.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PackageEditors\NHL 12\NHL12_CardEditor.resx">
+      <DependentUpon>NHL12_CardEditor.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PackageEditors\Ninja Gaiden 3 RE\NinjaGaiden3RE.resx">
+      <DependentUpon>NinjaGaiden3RE.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PackageEditors\NPlus\NPlus.resx">
+      <DependentUpon>NPlus.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PackageEditors\Oblivion\Oblivion.resx">
+      <DependentUpon>Oblivion.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PackageEditors\Package Manager\PackageManager.resx">
+      <DependentUpon>PackageManager.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PackageEditors\Plants vs Zombies\PlantsvsZombies.resx">
+      <DependentUpon>PlantsvsZombies.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PackageEditors\Profile Data Editor\ProfileDataEditor.resx">
+      <DependentUpon>ProfileDataEditor.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PackageEditors\Project Gotham Racing 4\PGR4.resx">
+      <DependentUpon>PGR4.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PackageEditors\Quake Arena Arcade\QuakeArenaArcade.resx">
+      <DependentUpon>QuakeArenaArcade.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PackageEditors\Rage\RageSave.resx">
+      <DependentUpon>RageSave.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PackageEditors\Red Dead Redemption\RedDeadRedemption.resx">
+      <DependentUpon>RedDeadRedemption.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PackageEditors\Red Faction Guerrilla\RedFactionGuerrilla.resx">
+      <DependentUpon>RedFactionGuerrilla.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PackageEditors\Resident Evil 5\ResidentEvil5.resx">
+      <DependentUpon>ResidentEvil5.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PackageEditors\Resident Evil 6\ResidentEvil6.resx">
+      <DependentUpon>ResidentEvil6.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PackageEditors\Resident Evil Code Veronica X HD\CodeVeronicaX.resx">
+      <DependentUpon>CodeVeronicaX.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PackageEditors\Resident Evil Code Veronica X HD\Controls\CVXSaveEntryControl.resx">
+      <DependentUpon>CVXSaveEntryControl.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PackageEditors\Resident Evil Code Veronica X HD\Controls\CVXEditorContainer.resx">
+      <DependentUpon>CVXEditorContainer.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PackageEditors\Resident Evil Code Veronica X HD\Controls\CVXItem.resx">
+      <DependentUpon>CVXItem.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PackageEditors\Resident Evil Code Veronica X HD\Controls\CVXItemList.resx">
+      <DependentUpon>CVXItemList.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PackageEditors\Resident Evil ORC\ResidentEvil_ORC.resx">
+      <DependentUpon>ResidentEvil_ORC.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PackageEditors\Saint%27s Row GOOH\SaintsRowGOOH.resx">
+      <DependentUpon>SaintsRowGOOH.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PackageEditors\Saint%27s Row IV\SaintsRowIV.resx">
+      <DependentUpon>SaintsRowIV.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PackageEditors\SaintsRow\SaintsRow3.resx">
+      <DependentUpon>SaintsRow3.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PackageEditors\Shadows of the Damned\Shadows_of_the_Damned.resx">
+      <DependentUpon>Shadows_of_the_Damned.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PackageEditors\Skyrim\Skyrim.resx">
+      <DependentUpon>Skyrim.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PackageEditors\Sleeping Dogs\SleepingDogs.resx">
+      <DependentUpon>SleepingDogs.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PackageEditors\Sonic The Hedgehog\SonicTheHedgehog.resx">
+      <DependentUpon>SonicTheHedgehog.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PackageEditors\SSX Tricky\SSXTricky.resx">
+      <DependentUpon>SSXTricky.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PackageEditors\Star Wars TFU II\StarWarsTFUII.resx">
+      <DependentUpon>StarWarsTFUII.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PackageEditors\State of Decay\Controls\NSCharacterObject.resx">
+      <DependentUpon>NSCharacterObject.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PackageEditors\State of Decay\Controls\NSEditorContainer.resx">
+      <DependentUpon>NSEditorContainer.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PackageEditors\State of Decay\Controls\NSEnclaveObject.resx">
+      <DependentUpon>NSEnclaveObject.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PackageEditors\State of Decay\Controls\NSInventoryConsumableObject.resx">
+      <DependentUpon>NSInventoryConsumableObject.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PackageEditors\State of Decay\Controls\NSInventoryGunObject.resx">
+      <DependentUpon>NSInventoryGunObject.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PackageEditors\State of Decay\Controls\NSInventoryListObject.resx">
+      <DependentUpon>NSInventoryListObject.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PackageEditors\State of Decay\Controls\NSInventoryWeaponObject.resx">
+      <DependentUpon>NSInventoryWeaponObject.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PackageEditors\State of Decay\StateofDecay.resx">
+      <DependentUpon>StateofDecay.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PackageEditors\Super Meat Boy\SuperMeatBoy.resx">
+      <DependentUpon>SuperMeatBoy.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PackageEditors\Swarm\Swarm.resx">
+      <DependentUpon>Swarm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PackageEditors\Test Drive Unlimited 2\TestDriveUnlimited2.resx">
+      <DependentUpon>TestDriveUnlimited2.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PackageEditors\Test Drive Unlimited\TestDriveUnlimited.resx">
+      <DependentUpon>TestDriveUnlimited.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PackageEditors\The Saboteur\Saboteur.resx">
+      <DependentUpon>Saboteur.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PackageEditors\Theme Creator\ThemeCreator.resx">
+      <DependentUpon>ThemeCreator.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PackageEditors\Tomb Raider\TombRaider.resx">
+      <DependentUpon>TombRaider.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PackageEditors\TW PGA Tour 14\TWPGATour14.resx">
+      <DependentUpon>TWPGATour14.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PackageEditors\Watch Dogs\Controls\WDEditorContainer.resx">
+      <DependentUpon>WDEditorContainer.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PackageEditors\Watch Dogs\Controls\WDInventoryCarsOnDemandList.resx">
+      <DependentUpon>WDInventoryCarsOnDemandList.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PackageEditors\Watch Dogs\Controls\WDInventoryWheelList.resx">
+      <DependentUpon>WDInventoryWheelList.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PackageEditors\Watch Dogs\WatchDogs.resx">
+      <DependentUpon>WatchDogs.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PackageEditors\WET\WET.resx">
+      <DependentUpon>WET.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PackageEditors\Yu Gi Oh 5Ds\YuGiOh5Ds.resx">
+      <DependentUpon>YuGiOh5Ds.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PackageEditors\Yu Gi Oh MD\YuGiOhMD.resx">
+      <DependentUpon>YuGiOhMD.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PackageEditors\[PROTOTYPE]\Prototype.resx">
+      <DependentUpon>Prototype.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="PackageEditors\Game Adder\GameAdder.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PackageEditors\Game Adder\GameAdder.Designer.cs">
+      <DependentUpon>GameAdder.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PackageEditors\Profile Data Editor\ProfileDataEditor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PackageEditors\Profile Data Editor\ProfileDataEditor.Designer.cs">
+      <DependentUpon>ProfileDataEditor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PackageEditors\Yu Gi Oh 5Ds\YuGiOh.cs" />
+    <Compile Include="PackageEditors\Yu Gi Oh 5Ds\YuGiOh5Ds.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PackageEditors\Yu Gi Oh 5Ds\YuGiOh5Ds.Designer.cs">
+      <DependentUpon>YuGiOh5Ds.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PackageEditors\Yu Gi Oh MD\YuGiOhMD.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PackageEditors\Yu Gi Oh MD\YuGiOhMD.Designer.cs">
+      <DependentUpon>YuGiOhMD.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PackageEditors\Yu Gi Oh MD\YuGiOhMillenniumDuels.cs" />
+    <Compile Include="PackageEditors\[PROTOTYPE]\Prototype.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PackageEditors\[PROTOTYPE]\Prototype.Designer.cs">
+      <DependentUpon>Prototype.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PackageEditors\[PROTOTYPE]\PrototypeClass.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="Server\Config.cs" />
+    <Compile Include="Server\Connection.cs" />
+    <Compile Include="Server\GameAdder.cs" />
+    <Compile Include="Server\Request.cs" />
+    <Compile Include="Server\Security.cs" />
+    <Compile Include="Server\User.cs" />
+    <Compile Include="Program.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Horizon.64.ico" />
+    <None Include="Resources\DragonBallXenoVerse_Thumb.png" />
+    <None Include="Resources\ForzaHorizon2_FnF_Thumb.png" />
+    <None Include="Resources\SaintsRowGOOH_Thumb.png" />
+    <None Include="Resources\PGR4_Thumb.png" />
+    <None Include="Resources\CodeVeronicaX_Thumb.png" />
+    <None Include="Resources\FarCry4_Thumb.png" />
+    <None Include="Resources\ACRogue_Thumb.png" />
+    <None Include="Resources\NBA_2K15_Thumb.png" />
+    <None Include="Resources\CoDAdvancedWarfare_Thumb.png" />
+    <None Include="Resources\ForzaHorizon2_Thumb_New.png" />
+    <None Include="Resources\FIFA15_Thumb.png" />
+    <None Include="Resources\WatchDogs_Thumb.png" />
+    <None Include="Resources\YuGiOh_MD_Thumb.png" />
+    <None Include="Resources\ForzaHorizon_Livery_Thumb_New.png" />
+    <None Include="Resources\ForzaHorizon_Thumb_New.png" />
+    <None Include="Resources\ForzaHorizon_SS_Thumb_New.png" />
+    <None Include="Resources\Forza4_Thumb_New.png" />
+    <None Include="Resources\Forza4_SS_Thumb_New.png" />
+    <None Include="Resources\Forza4_Livery_Thumb_New.png" />
+    <None Include="Resources\Forza3_Thumb_New.png" />
+    <None Include="Resources\Forza3_SS_Thumb_New.png" />
+    <None Include="Resources\Fable2_Thumb_New.png" />
+    <None Include="Resources\HaloReach_Thumb_New.png" />
+    <None Include="Resources\HaloReach_Megalo_Thumb_New.png" />
+    <None Include="Resources\Halo4_Thumb_New.png" />
+    <None Include="Resources\Halo4_Megalo_Thumb_New.png" />
+    <None Include="Resources\Halo3ODST_Thumb_New.png" />
+    <None Include="Resources\Halo3_Thumb_New.png" />
+    <None Include="Resources\GoWJ_Thumb_New.png" />
+    <None Include="Resources\GoWJ_Stats_Thumb_New.png" />
+    <None Include="Resources\GoW3_Thumb_New.png" />
+    <None Include="Resources\GoW3_Stats_Thumb_New.png" />
+    <None Include="Resources\GoW3_Profile_Thumb_New.png" />
+    <None Include="Resources\GoW2_Thumb_New.png" />
+    <None Include="Resources\GoW_Thumb_New.png" />
+    <None Include="Resources\TitleIdFinder_Default.png" />
+    <None Include="Resources\CoDGhostsThumb.png" />
+    <None Include="Resources\AC4_Thumb.png" />
+    <None Include="Resources\NBA_2K14Thumb.png" />
+    <None Include="Resources\FIFA14_Thumb.png" />
+    <None Include="Resources\SaintsRow4_Thumb.png" />
+    <None Include="Resources\GTAV_Thumb.png" />
+    <None Include="Resources\AC3_Thumb.png" />
+    <None Include="Resources\ACBrotherhood_Thumb.png" />
+    <None Include="Resources\StateOfDecay_Thumb.png" />
+    <None Include="Resources\Skyrim_Thumb.png" />
+    <None Include="Resources\FarCry3BloodDragon_Thumb.png" />
+    <None Include="Resources\SleepingDogs_Thumb.png" />
+    <None Include="Resources\HaloReach_Megalo_Thumb.png" />
+    <None Include="Resources\TigerWoods14_Thumb.png" />
+    <None Include="Resources\MotocrossMadness_Thumb.png" />
+    <None Include="Resources\InjusticeGAU_Thumb.png" />
+    <None Include="Resources\BattleBlock_Theater_Thumb.png" />
+    <None Include="Resources\GoWJ_Stats_Thumb.png" />
+    <None Include="Resources\BioShock_Infinite_Thumb.png" />
+    <None Include="Resources\Halo4_14.png" />
+    <None Include="Resources\Halo4_13.png" />
+    <None Include="Resources\Halo4_12.png" />
+    <None Include="Resources\Halo4_11.png" />
+    <None Include="Resources\Halo4_10.png" />
+    <None Include="Resources\Halo4_9.png" />
+    <None Include="Resources\Halo4_8.png" />
+    <None Include="Resources\Halo4_7.png" />
+    <None Include="Resources\Halo4_6.png" />
+    <None Include="Resources\Halo4_5.png" />
+    <None Include="Resources\Halo4_4.png" />
+    <None Include="Resources\Halo4_3.png" />
+    <None Include="Resources\Halo4_2.png" />
+    <None Include="Resources\Halo4_1.png" />
+    <None Include="Resources\Halo4_0.png" />
+    <None Include="Resources\Halo4_Megalo_Thumb.png" />
+    <None Include="Resources\MLB_2k13_Thumb.png" />
+    <None Include="Resources\TombRaider_Thumb.png" />
+    <None Include="Resources\NarutoStorm3_Thumb.png" />
+    <None Include="Resources\GoWJ_Thumb.png" />
+    <None Include="Resources\DS3_Thumb.png" />
+    <None Include="Resources\DevilMayCry5_Thumb.png" />
+    <None Include="Resources\Crysis3_Thumb.png" />
+    <None Include="Resources\NBA_2K13Thumb.png" />
+    <None Include="Resources\FarCry3_Thumb.png" />
+    <None Include="Resources\ForzaHorizon_Livery_Thumb.png" />
+    <None Include="Resources\BlackOpsII_Thumb.png" />
+    <None Include="Resources\ForzaHorizon_SS_Thumb.png" />
+    <None Include="Resources\Halo4_Thumb.png" />
+    <None Include="Resources\RE6_Thumb.png" />
+    <None Include="Resources\ForzaHorizon_Thumb.png" />
+    <None Include="Resources\FIFA13_Thumb.png" />
+    <None Include="Resources\DiRT3_Thumb.png" />
+    <None Include="Properties\app.manifest" />
+    <None Include="Resources\MaxPayne3_Thumb.png" />
+    <None Include="Resources\DragonsDogma_Thumb.png" />
+    <None Include="Resources\DiRTShowdown_Thumb.png" />
+    <None Include="Resources\SSXTricky_Thumb.png" />
+    <None Include="Resources\REORC_Thumb.png" />
+    <None Include="Resources\DevilMayCry3_Thumb.png" />
+    <None Include="Resources\FIFA12_Thumb.png" />
+    <None Include="Resources\MW3_Thumb.png" />
+    <None Include="Resources\ACR_Thumb.png" />
+    <None Include="Resources\SaintsRow3_Thumb.png" />
+    <None Include="Resources\Forza4_Livery_Thumb.png" />
+    <None Include="Resources\Batman_Arkham_City_Thumb.png" />
+    <None Include="Resources\Forza4_SS_Thumb.png" />
+    <None Include="Resources\Forza4_Thumb.png" />
+    <None Include="Resources\GoW3_Thumb.png" />
+    <None Include="Resources\GoW3_Stats_Thumb.png" />
+    <None Include="Resources\NaughtyBear_Thumb.png" />
+    <None Include="Resources\RE5_Thumb.png" />
+    <None Include="Resources\DeadIsland_Thumb.png" />
+    <None Include="Resources\MercuryHg_Thumb.png" />
+    <None Include="Resources\Bastion_Thumb.png" />
+    <None Include="Resources\Captcha_Diamond.png" />
+    <None Include="Resources\Trash.png" />
+    <None Include="Resources\Medal_Blue.png" />
+    <None Include="Resources\Flame_Small.png" />
+    <None Include="Resources\AlignRight.png" />
+    <None Include="Resources\AlignLeft.png" />
+    <None Include="Resources\AlignCenter.png" />
+    <None Include="Resources\Forza3_SS_Thumb.png" />
+    <None Include="Resources\FIFA11_Thumb.png" />
+    <None Include="Resources\Brink_Thumb.png" />
+    <None Include="Resources\Swarm_Thumb.png" />
+    <None Include="Resources\Crysis2_Thumb.png" />
+    <None Include="Resources\DS2_Thumb.png" />
+    <None Include="Resources\Fable2_Thumb.png" />
+    <None Include="Resources\BrutalLegend_Thumb.png" />
+    <None Include="Resources\GamercardViewer_Thumb.png" />
+    <None Include="Resources\Bayonetta_Thumb.png" />
+    <None Include="Resources\DevilMayCry4_Thumb.png" />
+    <None Include="Resources\Bulletstorm_Thumb.png" />
+    <None Include="Resources\PageWarning.png" />
+    <None Include="Resources\Page.png" />
+    <None Include="Resources\Magnifier.png" />
+    <None Include="Resources\Transparent_32.png" />
+    <None Include="Resources\Heart.png" />
+    <None Include="Resources\Flame.png" />
+    <None Include="Resources\Star.png" />
+    <None Include="Resources\Smile.png" />
+    <None Include="Resources\RedFlag.png" />
+    <None Include="Resources\New.png" />
+    <None Include="Resources\GamerPictureManager_Thumb.png" />
+    <None Include="Resources\TestDrive2_Thumb.png" />
+    <None Include="Resources\MarbleBlastUltra_Thumb.png" />
+    <None Include="Resources\PlantsVsZombies_Thumb.png" />
+    <None Include="Resources\NarutoStorm2_Thumb.png" />
+    <None Include="Resources\Info.png" />
+    <None Include="Resources\DeviceExplorer_Thumb.png" />
+    <None Include="Resources\FatxUSB_24.png" />
+    <None Include="Resources\FatxMU_24.png" />
+    <None Include="Resources\FatxHDD_24.png" />
+    <None Include="Resources\QuakeArenaArcade_Thumb.png" />
+    <None Include="Resources\Enslaved_Odyssey_Thumb.png" />
+    <None Include="Resources\Blur_Thumb.png" />
+    <None Include="Resources\Bioshock_2_Thumb.png" />
+    <None Include="Resources\AvP_Thumb.png" />
+    <None Include="Resources\Just_Cause_Thumb.png" />
+    <None Include="Resources\Bionic_Commando_Thumb.png" />
+    <None Include="Resources\Metro_2033_Thumb.png" />
+    <None Include="Resources\Prototype_Thumb.png" />
+    <None Include="Resources\FEAR_Thumb.png" />
+    <None Include="Resources\FEAR_2_Thumb.png" />
+    <None Include="Resources\Darksiders_Thumb.png" />
+    <None Include="Resources\Borderlands_Thumb.png" />
+    <None Include="Resources\LIMBO_Thumb.png" />
+    <None Include="Resources\YuGiOh_5DS_Thumb.png" />
+    <None Include="Resources\AlanWake_Thumb.png" />
+    <None Include="Resources\Account_Thumb.png" />
+    <None Include="Resources\GTA4_StickyBomb.png" />
+    <None Include="Resources\GTA4_SniperRifle.png" />
+    <None Include="Resources\GTA4_Sawed_Off_Shotgun.png" />
+    <None Include="Resources\GTA4_RPG.png" />
+    <None Include="Resources\GTA4_PumpShotgun.png" />
+    <None Include="Resources\GTA4_Pool_Cue.png" />
+    <None Include="Resources\GTA4_Pistol44.png" />
+    <None Include="Resources\GTA4_Pipe_Bomb.png" />
+    <None Include="Resources\GTA4_P90.png" />
+    <None Include="Resources\GTA4_MP5.png" />
+    <None Include="Resources\GTA4_Molotov.png" />
+    <None Include="Resources\GTA4_MicroUZI.png" />
+    <None Include="Resources\GTA4_M4Carbine.png" />
+    <None Include="Resources\GTA4_Knife.png" />
+    <None Include="Resources\GTA4_Grenade_Launcher.png" />
+    <None Include="Resources\GTA4_Grenade.png" />
+    <None Include="Resources\GTA4_GoldUzi.png" />
+    <None Include="Resources\GTA4_Glock.png" />
+    <None Include="Resources\GTA4_Fist.png" />
+    <None Include="Resources\GTA4_DesertEagle.png" />
+    <None Include="Resources\GTA4_CombatSniper.png" />
+    <None Include="Resources\GTA4_CombatShotgun.png" />
+    <None Include="Resources\GTA4_BaseballBat.png" />
+    <None Include="Resources\GTA4_Automatic_9mm.png" />
+    <None Include="Resources\GTA4_Assault_Shotgun.png" />
+    <None Include="Resources\GTA4_AK47.png" />
+    <None Include="Resources\GTA4_AdvancedSniper.png" />
+    <None Include="Resources\GTA4_Advanced_MG.png" />
+    <None Include="Resources\GTA4_AA12.png" />
+    <None Include="Resources\GTAIV_Thumb.png" />
+    <None Include="Resources\RedDot.png" />
+    <None Include="Resources\GrayDot.png" />
+    <None Include="Resources\Profile_Thumb.png" />
+    <None Include="Resources\QuestionMarkWide.png" />
+    <None Include="Resources\Gear.png" />
+    <None Include="Resources\GoW_Thumb.png" />
+    <None Include="Resources\GoW2_Thumb.png" />
+    <None Include="Resources\Theme_Other.png" />
+    <None Include="Resources\Theme_Main.png" />
+    <None Include="Resources\Theme_Game.png" />
+    <None Include="Resources\Theme_Thumb.png" />
+    <None Include="Resources\Logo64.png" />
+    <None Include="Resources\Pencil.png" />
+    <None Include="Resources\WarpZone.png" />
+    <None Include="Resources\MeatBoy.png" />
+    <None Include="Resources\Bandage.png" />
+    <None Include="Resources\BlackSkull.png" />
+    <None Include="Resources\SMB_Thumb.png" />
+    <None Include="Resources\NeedForSpeedHP_Thumb.png" />
+    <None Include="Resources\NPlus_Thumb.png" />
+    <None Include="Resources\StarWarsTFUII_Thumb.png" />
+    <None Include="Resources\Console.png" />
+    <None Include="Resources\GreenDot.png" />
+    <None Include="Resources\VisitUs_Thumb.png" />
+    <None Include="Resources\About_Thumb.png" />
+    <None Include="Resources\FindTID_Thumb.png" />
+    <None Include="Resources\Manager_Thumb.png" />
+    <None Include="Resources\AvatarEditor_Thumb.png" />
+    <None Include="Resources\ProfileEditor_Thumb.png" />
+    <None Include="Resources\Adder_Thumb.png" />
+    <None Include="Resources\AvatarAward_Thumb.png" />
+    <None Include="Resources\Unlocker_Thumb.png" />
+    <None Include="Resources\Unearned.png" />
+    <None Include="Resources\EarnedAvatarAward.png" />
+    <None Include="Resources\EarnedAchievement.png" />
+    <None Include="Resources\QuestionMark.jpg" />
+    <None Include="app.config" />
+    <None Include="Resources\BBC2_Thumb.png" />
+    <None Include="Resources\MoH_Thumb.png" />
+    <None Include="Resources\DiRT2_Thumb.png" />
+    <None Include="Resources\DeadRising2_Thumb.png" />
+    <None Include="Resources\TestDrive_Thumb.png" />
+    <None Include="Resources\HaloReach_Thumb.png" />
+    <None Include="Resources\RedDead_Thumb.png" />
+    <None Include="Resources\Milestone3.png" />
+    <None Include="Resources\Milestone2.png" />
+    <None Include="Resources\Milestone1.png" />
+    <None Include="Resources\Crown10.png" />
+    <None Include="Resources\Crown9.png" />
+    <None Include="Resources\Crown8.png" />
+    <None Include="Resources\Crown7.png" />
+    <None Include="Resources\Crown6.png" />
+    <None Include="Resources\Crown5.png" />
+    <None Include="Resources\Crown4.png" />
+    <None Include="Resources\Crown3.png" />
+    <None Include="Resources\Crown2.png" />
+    <None Include="Resources\Crown1.png" />
+    <None Include="Resources\RedFaction_Thumb.png" />
+    <None Include="Resources\Delete.png" />
+    <None Include="Resources\LoadingLogoPNET.png" />
+    <None Include="Resources\Crackdown2_Thumb.png" />
+    <None Include="Resources\LostOdyssey_Thumb.png" />
+    <None Include="Resources\Minus.png" />
+    <None Include="Resources\Plus.png" />
+    <None Include="Resources\UserSingle.png" />
+    <None Include="Resources\Partition.png" />
+    <None Include="Resources\FolderOpen.png" />
+    <None Include="Resources\FolderClosed.png" />
+    <None Include="Resources\FileIcon.png" />
+    <None Include="Resources\SaveIcon.png" />
+    <None Include="Resources\AboutLogo.png" />
+    <None Include="Resources\LeftArrow.png" />
+    <None Include="Resources\RightArrow.png" />
+    <None Include="Resources\AvatarColorRectangle.png" />
+    <None Include="Resources\Gamerscore.png" />
+    <None Include="Resources\Trophy.png" />
+    <None Include="Resources\UpArrowSilver.png" />
+    <None Include="Resources\DownArrow.png" />
+    <None Include="Resources\Saboteur_Thumb.png" />
+    <None Include="Resources\User.png" />
+    <None Include="Resources\Halo3ODST_Thumb.jpg" />
+    <None Include="Resources\DS_Thumb.png" />
+    <None Include="Resources\WET_Thumb.png" />
+    <None Include="Resources\Sonic_Thumb.png" />
+    <None Include="Resources\Oblivion_Thumb.png" />
+    <None Include="Resources\Halo3_Thumb.png" />
+    <None Include="Resources\CC_Thumb.png" />
+    <None Include="Resources\Tile.jpg" />
+    <None Include="Resources\Question.png" />
+    <None Include="Resources\UpArrow.png" />
+    <None Include="Resources\Refresh.png" />
+    <None Include="Resources\Lock.png" />
+    <None Include="Resources\L4D2_Thumb.png" />
+    <None Include="Resources\Forza3_Thumb.png" />
+    <None Include="Resources\Crackdown_Thumb.png" />
+    <None Include="Resources\AC2_Thumb.png" />
+    <None Include="Resources\LoadingLogo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.2.0">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 2.0 %28x86%29</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.0">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.0 %28x86%29</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
