@@ -50,10 +50,8 @@ namespace Horizon
             addForm(FormID.Crysis2Profile, typeof(PackageEditors.Crysis_2.Crysis2Profile), "Crysis 2 Online", FormType.GPD_Modder, Resources.Crysis2_Thumb, FormAccess.Diamond);
             addForm(FormID.GearsOfWar3ProfileData, typeof(PackageEditors.Gears_of_War_3.ProfileData), "Gears of War 3 Profile", FormType.GPD_Modder, Resources.GoW3_Profile_Thumb_New, FormAccess.Diamond);
             addForm(FormID.GearsOfWarJudgmentProfileEditor, typeof(PackageEditors.Gears_of_War_Judgment.Profile.ProfileEditor), "GoW: Judgment Profile", FormType.GPD_Modder, Resources.GoWJ_Stats_Thumb_New, FormAccess.Diamond);
-            addForm(FormID.Halo4Profile, typeof(PackageEditors.Halo_4.Halo4Profile), "Halo 4 Profile", FormType.GPD_Modder, Resources.Halo4_Thumb_New, FormAccess.Diamond);
             addForm(FormID.MarbleBlastUltra, typeof(PackageEditors.Marble_Blast_Ultra.MarbleBlastUltra), "Marble Blast Ultra", FormType.GPD_Modder, Resources.MarbleBlastUltra_Thumb, FormAccess.Anyone);
             addForm(FormID.NPlus, typeof(PackageEditors.NPlus.NPlus), "N+", FormType.GPD_Modder, Resources.NPlus_Thumb, FormAccess.Anyone);
-            addForm(FormID.HaloReachSettings, typeof(PackageEditors.Halo_Reach.HaloReachSettings), "Reach Credit Editor", FormType.GPD_Modder, Resources.HaloReach_Thumb_New, FormAccess.Anyone);
             addForm(FormID.RedFactionGuerrilla, typeof(PackageEditors.Red_Faction_Guerrilla.RedFactionGuerrilla), "Red Faction: Guerrilla", FormType.GPD_Modder, Resources.RedFaction_Thumb, FormAccess.Anyone);
             addForm(FormID.Swarm, typeof(PackageEditors.Swarm.Swarm), "Swarm", FormType.GPD_Modder, Resources.Swarm_Thumb, FormAccess.Anyone);
 
@@ -102,8 +100,6 @@ namespace Horizon
             addForm(FormID.FIFA13, typeof(PackageEditors.FIFA_13.FIFA13), "FIFA Soccer 13", FormType.Game_Modder, Resources.FIFA13_Thumb, FormAccess.Anyone);
             addForm(FormID.FIFA14, typeof(PackageEditors.FIFA_14.FIFA14), "FIFA Soccer 14", FormType.Game_Modder, Resources.FIFA14_Thumb, FormAccess.Anyone);
             addForm(FormID.FIFA15, typeof(PackageEditors.FIFA_15.FIFA15), "FIFA Soccer 15", FormType.Game_Modder, Resources.FIFA15_Thumb, FormAccess.Anyone);
-            addForm(FormID.Forza3, typeof(PackageEditors.Forza_3.Forza3), "Forza Motorsport 3", FormType.Game_Modder, Resources.Forza3_Thumb_New, FormAccess.Diamond);
-            addForm(FormID.Forza3SS, typeof(PackageEditors.Forza_3.Forza3SS), "Forza 3 Screenshot", FormType.Game_Modder, Resources.Forza3_SS_Thumb_New, FormAccess.Diamond);
             addForm(FormID.Forza4Profile, typeof(PackageEditors.Forza_4.Forza4Profile), "Forza Motorsport 4", FormType.Game_Modder, Resources.Forza4_Thumb_New, FormAccess.Diamond);
             addForm(FormID.Forza4Ss, typeof(PackageEditors.Forza_4.Forza4Ss), "Forza 4 Screenshot", FormType.Game_Modder, Resources.Forza4_SS_Thumb_New, FormAccess.Diamond);
             addForm(FormID.Forza4Livery, typeof(PackageEditors.Forza_4.Forza4Livery), "Forza 4 Livery Unlocker", FormType.Game_Modder, Resources.Forza4_Livery_Thumb_New, FormAccess.Diamond);

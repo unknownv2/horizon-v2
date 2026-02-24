@@ -23,7 +23,6 @@
     </FileUpgradeFlags>
     <OldToolsVersion>3.5</OldToolsVersion>
     <UpgradeBackupLocation />
-    <AssemblyOriginatorKeyFile>StrongKey.pfx</AssemblyOriginatorKeyFile>
     <DelaySign>false</DelaySign>
     <PublishUrl>publish\</PublishUrl>
     <Install>true</Install>
@@ -669,18 +668,6 @@
       <DependentUpon>FIFA13.cs</DependentUpon>
     </Compile>
     <Compile Include="PackageEditors\FIFA 13\FIFA13_GameSave.cs" />
-    <Compile Include="PackageEditors\Forza 3\Forza3Liveries.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="PackageEditors\Forza 3\Forza3Liveries.Designer.cs">
-      <DependentUpon>Forza3Liveries.cs</DependentUpon>
-    </Compile>
-    <Compile Include="PackageEditors\Forza 3\Forza3SS.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="PackageEditors\Forza 3\Forza3SS.Designer.cs">
-      <DependentUpon>Forza3SS.cs</DependentUpon>
-    </Compile>
     <Compile Include="PackageEditors\Forza 4\Forza4.cs" />
     <Compile Include="PackageEditors\Forza 4\Forza4Livery.cs">
       <SubType>Form</SubType>
@@ -815,85 +802,6 @@
     <Compile Include="Forms\Splash.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="PackageEditors\Forza 3\Forza3.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="PackageEditors\Forza 3\Forza3.Designer.cs">
-      <DependentUpon>Forza3.cs</DependentUpon>
-    </Compile>
-    <Compile Include="PackageEditors\Forza 3\Forza3Class.cs" />
-    <Compile Include="PackageEditors\Halo 4\MP\H4MegaloEditor.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="PackageEditors\Halo 4\MP\H4MegaloEditor.Designer.cs">
-      <DependentUpon>H4MegaloEditor.cs</DependentUpon>
-    </Compile>
-    <Compile Include="PackageEditors\Halo 4\SP\Controls\H4BipedObject.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="PackageEditors\Halo 4\SP\Controls\H4BipedObject.designer.cs">
-      <DependentUpon>H4BipedObject.cs</DependentUpon>
-    </Compile>
-    <Compile Include="PackageEditors\Halo 4\SP\Controls\H4EditorContainer.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="PackageEditors\Halo 4\SP\Controls\H4EditorContainer.designer.cs">
-      <DependentUpon>H4EditorContainer.cs</DependentUpon>
-    </Compile>
-    <Compile Include="PackageEditors\Halo 4\SP\Controls\H4GeneralObject.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="PackageEditors\Halo 4\SP\Controls\H4GeneralObject.designer.cs">
-      <DependentUpon>H4GeneralObject.cs</DependentUpon>
-    </Compile>
-    <Compile Include="PackageEditors\Halo 4\SP\Controls\H4IdentControl.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="PackageEditors\Halo 4\SP\Controls\H4IdentControl.designer.cs">
-      <DependentUpon>H4IdentControl.cs</DependentUpon>
-    </Compile>
-    <Compile Include="PackageEditors\Halo 4\SP\Controls\H4WeaponControl.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="PackageEditors\Halo 4\SP\Controls\H4WeaponControl.designer.cs">
-      <DependentUpon>H4WeaponControl.cs</DependentUpon>
-    </Compile>
-    <Compile Include="PackageEditors\Halo 4\SP\Halo4CampaignEditor.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="PackageEditors\Halo 4\SP\Halo4CampaignEditor.designer.cs">
-      <DependentUpon>Halo4CampaignEditor.cs</DependentUpon>
-    </Compile>
-    <Compile Include="PackageEditors\Halo 4\SP\Halo4CampaignSave.cs" />
-    <Compile Include="PackageEditors\Halo 4\Profile\Halo4Profile.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="PackageEditors\Halo 4\Profile\Halo4Profile.Designer.cs">
-      <DependentUpon>Halo4Profile.cs</DependentUpon>
-    </Compile>
-    <Compile Include="PackageEditors\Halo 4\Profile\Halo4ProfileClass.cs">
-    </Compile>
-    <Compile Include="PackageEditors\Halo 4\Halo4TagList.cs" />
-    <Compile Include="PackageEditors\Halo Reach\MP\HReachMegaloEditor.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="PackageEditors\Halo Reach\MP\HReachMegaloEditor.Designer.cs">
-      <DependentUpon>HReachMegaloEditor.cs</DependentUpon>
-    </Compile>
-    <Compile Include="PackageEditors\Halo Reach\SP\HaloReach.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="PackageEditors\Halo Reach\SP\HaloReach.Designer.cs">
-      <DependentUpon>HaloReach.cs</DependentUpon>
-    </Compile>
-    <Compile Include="PackageEditors\Halo Reach\Profile\HaloReachClass.cs" />
-    <Compile Include="PackageEditors\Halo Reach\Profile\HaloReachSettings.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="PackageEditors\Halo Reach\Profile\HaloReachSettings.designer.cs">
-      <DependentUpon>HaloReachSettings.cs</DependentUpon>
-    </Compile>
-    <Compile Include="PackageEditors\Halo Reach\SP\ReachSave.cs" />
     <Compile Include="PackageEditors\Homefront\Homefront.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -1791,50 +1699,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="PackageEditors\Grid 2\Grid2.resx">
       <DependentUpon>Grid2.cs</DependentUpon>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="PackageEditors\Halo 4\MP\H4MegaloEditor.resx">
-      <DependentUpon>H4MegaloEditor.cs</DependentUpon>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="PackageEditors\Halo 4\SP\Controls\H4BipedObject.resx">
-      <DependentUpon>H4BipedObject.cs</DependentUpon>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="PackageEditors\Halo 4\SP\Controls\H4EditorContainer.resx">
-      <DependentUpon>H4EditorContainer.cs</DependentUpon>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="PackageEditors\Halo 4\SP\Controls\H4GeneralObject.resx">
-      <DependentUpon>H4GeneralObject.cs</DependentUpon>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="PackageEditors\Halo 4\SP\Controls\H4IdentControl.resx">
-      <DependentUpon>H4IdentControl.cs</DependentUpon>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="PackageEditors\Halo 4\SP\Controls\H4WeaponControl.resx">
-      <DependentUpon>H4WeaponControl.cs</DependentUpon>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="PackageEditors\Halo 4\SP\Halo4CampaignEditor.resx">
-      <DependentUpon>Halo4CampaignEditor.cs</DependentUpon>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="PackageEditors\Halo 4\Profile\Halo4Profile.resx">
-      <DependentUpon>Halo4Profile.cs</DependentUpon>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="PackageEditors\Halo Reach\MP\HReachMegaloEditor.resx">
-      <DependentUpon>HReachMegaloEditor.cs</DependentUpon>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="PackageEditors\Halo Reach\SP\HaloReach.resx">
-      <DependentUpon>HaloReach.cs</DependentUpon>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="PackageEditors\Halo Reach\Profile\HaloReachSettings.resx">
-      <DependentUpon>HaloReachSettings.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="PackageEditors\Injustice Gods Among Us\InjusticeGAU.resx">

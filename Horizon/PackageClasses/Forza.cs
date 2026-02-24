@@ -305,7 +305,7 @@ namespace ForzaMotorsport
             }
             else if (Version == ForzaVersion.Forza3)
             {
-                imageWriter.Write(Forza3.ForzaSecurity.HmacSha(ShaKey, EncryptionHeader, ImageData));
+                //imageWriter.Write(Forza3.ForzaSecurity.HmacSha(ShaKey, EncryptionHeader, ImageData));
             }
             else
             {
