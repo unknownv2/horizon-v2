@@ -188,8 +188,8 @@ namespace Horizon.Forms
                 else
                     cmdRegister_Click(null, null);
             }
-            else
-                UI.messageBox("Horizon is currently running in offline mode!\nYou have limited access to modding tools.", "Offline Mode", MessageBoxIcon.Warning);
+            //else
+                //UI.messageBox("Horizon is currently running in offline mode!\nYou have limited access to modding tools.", "Offline Mode", MessageBoxIcon.Warning);
         }
 
         // Opens the default browser to the forgot password page.
